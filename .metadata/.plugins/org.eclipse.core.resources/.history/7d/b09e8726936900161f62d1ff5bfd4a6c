@@ -1,0 +1,15 @@
+/*
+ * This class represents the specific publication of type "article"
+ */
+
+package edu.unsw.comp9321;
+
+public class PublicationArticle extends Publication{
+	
+	
+	public PublicationArticle() {
+		super();
+		
+	}
+
+}

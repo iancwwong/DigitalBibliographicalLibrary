@@ -1,0 +1,16 @@
+package edu.unsw.comp9321;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class SimplePublicationBean {
+	// HELPER CLASS
+	public String id = "";
+	public String title = "";
+	public List<String> authors = new ArrayList<String>();
+	
+	public String getId() { return this.id; }
+	public String getTitle() { return this.title; }
+	public List<String> getAuthors() { return this.authors; }
+		
+}

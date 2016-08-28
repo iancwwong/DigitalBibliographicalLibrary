@@ -1,0 +1,16 @@
+/*
+ * This class represents the specific publication of type "article"
+ */
+
+package edu.unsw.comp9321;
+
+public class PublicationArticle extends Publication{
+	public String rating = "";
+	public String number = "";
+	
+	public PublicationArticle() {
+		super();
+		
+	}
+
+}

@@ -1,0 +1,16 @@
+/*
+ * This class represents the specific publication of type "Book"
+ */
+package edu.unsw.comp9321;
+
+public class PublicationBook extends Publication {
+	public String pages = "";
+	public String publisher = "";
+	public String isbn = "";
+	public String series = "";
+	
+	public PublicationBook() {
+		super();
+		this.type = "book";
+	}
+}

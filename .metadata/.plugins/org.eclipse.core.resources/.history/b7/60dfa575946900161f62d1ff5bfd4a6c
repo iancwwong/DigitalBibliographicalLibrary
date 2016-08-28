@@ -1,0 +1,63 @@
+/*
+ * This class represents the hander that will consider the
+ * semantics of publications when parsing the xml file
+ */
+
+package edu.unsw.comp9321;
+
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+import java.util.*;
+
+public class SaxPublicationsHandler extends DefaultHandler {
+	
+	// Contains types of publication names
+	public List<String> publicationTypes = newArrayList<String>();
+	
+	public HashMap<String, ArrayList<Publication>> publications = new HashMap<String, ArrayList<Publication>>();
+	public Publication currPublication = null;
+	
+	// For parsing tags correctly
+	private Stack<String> elementStack = new Stack<String>();
+	
+	public SaxPublicationsHandler() {
+		super();
+		this.
+	}
+	
+	// Deals with start tags
+	@Override
+	public void startElement(String uri, String localName, String elementName,
+			Attributes attributes) throws SAXException {
+		
+		this.elementStack.push(elementName);
+		
+	}
+	
+	// Deals with end tags
+	@Override
+	public void endElement(String uri, String localName, String elementName) 
+			throws SAXException {
+		this.elementStack.pop();
+		
+	}
+	
+	// Deals with all the characters between the start and end tags
+	// ie element values
+	@Override
+	public void characters(char ch[], int start, int length)
+		throws SAXException {
+		
+		String value = new String(ch,start,length).trim();
+		
+		// Ignore white space
+		if (value.length() == 0) return;
+		
+		// Determine semantics of the element value, depending on what was
+		// the last start element tag
+		String elementName = this.elementStack.peek();
+
+	}
+
+}

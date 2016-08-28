@@ -1,0 +1,10 @@
+/*
+ * This class represents the hander that will consider the
+ * semantics of publications when parsing the xml file
+ */
+
+package edu.unsw.comp9321;
+
+public class SaxPublicationsHandler {
+
+}

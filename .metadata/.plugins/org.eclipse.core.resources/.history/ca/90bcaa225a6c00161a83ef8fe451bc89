@@ -1,0 +1,21 @@
+/*
+ * This class represents a user's cart
+ */
+package edu.unsw.comp9321;
+import java.util.*;
+
+public class Cart {
+	public List<PublicationBean> publications = new ArrayList<PublicationBean>();
+	
+	// Constructor
+	public Cart() {}
+	
+	// Add a particular publication, given as a Publication object
+	public void addPublication(Publication pubToAdd) {
+		// Convert publication to publicationBean for front-end presentation
+		PublicationBean pb = new PublicationBean(pubToAdd);
+	}
+	
+	// Getters
+	public List<PublicationBean> getPublications() { return this.publications; }
+}

@@ -1,0 +1,13 @@
+127.0.0.1 - - [23/Aug/2016:20:13:38 +1000] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [23/Aug/2016:20:13:39 +1000] "GET /DigitalBibliographicLibrary/ HTTP/1.1" 200 2359
+0:0:0:0:0:0:0:1 - - [23/Aug/2016:20:13:40 +1000] "GET /DigitalBibliographicLibrary/css/navbar.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [23/Aug/2016:20:13:40 +1000] "GET /DigitalBibliographicLibrary/css/general.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [23/Aug/2016:20:13:43 +1000] "GET /DigitalBibliographicLibrary/search.jsp HTTP/1.1" 200 2343
+0:0:0:0:0:0:0:1 - - [23/Aug/2016:20:13:45 +1000] "GET /DigitalBibliographicLibrary/cart.jsp HTTP/1.1" 200 2336
+0:0:0:0:0:0:0:1 - - [23/Aug/2016:20:13:47 +1000] "GET /DigitalBibliographicLibrary/search.jsp HTTP/1.1" 200 2343
+0:0:0:0:0:0:0:1 - - [23/Aug/2016:20:13:48 +1000] "GET /DigitalBibliographicLibrary/index.jsp HTTP/1.1" 200 2359
+0:0:0:0:0:0:0:1 - - [23/Aug/2016:20:13:49 +1000] "GET /DigitalBibliographicLibrary/index.jsp HTTP/1.1" 200 2359
+0:0:0:0:0:0:0:1 - - [23/Aug/2016:20:13:50 +1000] "GET /DigitalBibliographicLibrary/index.jsp HTTP/1.1" 200 2359
+0:0:0:0:0:0:0:1 - - [23/Aug/2016:20:13:50 +1000] "GET /DigitalBibliographicLibrary/search.jsp HTTP/1.1" 200 2343
+0:0:0:0:0:0:0:1 - - [23/Aug/2016:20:13:51 +1000] "GET /DigitalBibliographicLibrary/index.jsp HTTP/1.1" 200 2359
+0:0:0:0:0:0:0:1 - - [23/Aug/2016:20:13:52 +1000] "GET /DigitalBibliographicLibrary/index.jsp HTTP/1.1" 200 2359

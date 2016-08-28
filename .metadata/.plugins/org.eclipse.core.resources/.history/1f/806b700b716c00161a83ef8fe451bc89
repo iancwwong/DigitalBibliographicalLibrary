@@ -1,0 +1,67 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+	<!--  Bootstrap meta tags  -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!--  Other heads -->
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	
+	<title>DBL - My Cart</title>
+	
+	<!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+    <!--  Page styling -->
+    <link href="css/general.css" rel="stylesheet">
+    <link href="css/navbar.css" rel="stylesheet">
+    
+</head>
+<body>
+	<!-- Havbar -- >
+	<%@ include file="include/navbar.html"%>
+	<center>	
+	<h1>Viewing cart</h1>
+	</center>
+	
+	<!-- cart content -->
+	<div class="container">
+	
+		<!--  Check if cart is empty -->
+		<p>${cartPageBean.cart.numItems}</p>
+		<c:choose>
+			
+			<c:when test="${cartPageBean.cart.numItems > 0}">
+				<p>There are ${cartPageBean.cart.numItems} items to display!</p>
+			</c:when>
+			
+			<c:when test="${cartPageBean.cart.numItems == 0}>
+				<strong>Shopping Cart is Empty!</strong>
+			</c:when>
+			
+		</c:choose>
+	
+		<!-- Back to search -->
+		<form action='control' method='POST'>
+			<input type='hidden' name="action" value="viewIndexPage"/>
+			<button type="submit" class="btn btn-success">
+				<span class="glyphicon glyphicon-triangle-left"></span>
+				Back to search
+			</button>
+		</form>	
+		
+	</div>	
+    
+    <!-- ========= Bootstrap Core Javascript =========== -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>

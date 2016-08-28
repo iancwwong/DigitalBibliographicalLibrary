@@ -1,0 +1,13 @@
+/*
+ * This class represents the specific publication of type 'phd thesis'
+ */
+package edu.unsw.comp9321;
+
+public class PublicationPhdthesis extends Publication {
+	public String series = "";
+	public String isbn = "";
+	public String pages = "";
+	public String volume = "";
+	
+
+}

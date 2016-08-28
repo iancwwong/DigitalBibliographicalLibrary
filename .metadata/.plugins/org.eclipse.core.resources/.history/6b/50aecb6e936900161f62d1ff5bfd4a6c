@@ -1,0 +1,9 @@
+/*
+ * This class represents the specific publication of type "Inproceedings"
+ */
+
+package edu.unsw.comp9321;
+
+public class PublicationInproceedings extends Publication {
+	public String pages = "";
+}

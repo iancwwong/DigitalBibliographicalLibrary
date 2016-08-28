@@ -1,0 +1,9 @@
+/*
+ * This class will represent the user
+ */
+package edu.unsw.comp9321;
+
+public class UserBean {
+	public String userID = "";
+	public List<PublicationBean> inCartPublications = new List<PublicationBean>();
+}

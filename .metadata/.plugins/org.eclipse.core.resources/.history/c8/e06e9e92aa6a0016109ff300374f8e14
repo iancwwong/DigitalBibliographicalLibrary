@@ -1,0 +1,122 @@
+package edu.unsw.comp9321;
+
+import java.io.IOException;
+import java.util.*;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+
+import org.xml.sax.InputSource;
+
+/**
+ * Servlet implementation class ControllerServlet
+ */
+@WebServlet("/control")
+public class ControllerServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	
+	// Store the publications
+	private HashMap<String, ArrayList<Publication>> publications = new HashMap<String, ArrayList<Publication>>();
+	
+	// Store the mapping of the publication semantic name with technical name
+	private HashMap<String, String> publicationTypeMap = new HashMap<String, String>();
+	
+	// Random number generator
+	Random randomiser;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ControllerServlet() {
+        super();
+
+		// Instantiate the type mappings for publications
+		// with:
+		//      key = type found in xml
+		//      value = semantically equivalent name
+		this.publicationTypeMap.put("article", "journal");
+		this.publicationTypeMap.put("inproceedings", "conference (inproceedings)");
+		this.publicationTypeMap.put("proceedings", "conference (proceedings)");
+		this.publicationTypeMap.put("book", "book");
+		this.publicationTypeMap.put("incollection", "incollection");
+		this.publicationTypeMap.put("phdthesis", "phd thesis");
+		this.publicationTypeMap.put("mastersthesis", "masters thesis");
+		this.publicationTypeMap.put("www", "www");
+		
+		this.randomiser = new Random();
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// Check if need to parse xml file
+		if (this.publications.size() == 0) {
+			parseXMLFile();
+		}
+		doPost(request, response);		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	}
+	
+	/*
+	 * HELPER FUNCTIONS
+	 */
+	
+	// Parse dblp.xml into list of publications
+	private void parseXMLFile() {
+		
+        // Parse XML file into publication objects
+    	ServletContext context = getServletContext();
+    	InputSource xmlFile = new InputSource(context.getResourceAsStream("/DATA-INF/dblp.xml"));
+    	SAXParserFactory factory = SAXParserFactory.newInstance();
+		try {
+			System.out.println("Parsing XML file...");
+			SAXParser saxParser = factory.newSAXParser();
+			SaxPublicationsHandler handler = new SaxPublicationsHandler();
+			saxParser.parse(xmlFile,  handler);
+			
+			this.publications = handler.publications;
+			System.out.println("Successfully parsed XML file!");
+			
+			// DEBUGGING
+			int numPubs = 0;
+			for (String publicationType : this.publications.keySet()) {
+				System.out.println("Number of " + publicationType + ": " + this.publications.get(publicationType).size());
+				numPubs += this.publications.get(publicationType).size();
+			}
+			System.out.println("== Total publications parsed: " + numPubs);
+						
+		} catch (Throwable err) {
+			err.printStackTrace();
+		}
+	}
+	
+	private Publication getRandomPublication() {
+		
+		// Get random publication list of a random type
+		List<String> publicationTypes = new ArrayList<String>(this.publications.keySet());
+		String randomPublicationType = publicationTypes.get(this.randomiser.nextInt(publicationTypes.size()));
+		ArrayList<Publication> randPublicationList = this.publications.get(randomPublicationType);
+		while (randPublicationList.size() == 0) {
+			randomPublicationType = publicationTypes.get(this.randomiser.nextInt(publicationTypes.size()));
+			randPublicationList = this.publications.get(randomPublicationType);
+		}
+		
+		// Get random publication
+		return randPublicationList.get(this.randomiser.nextInt(randPublicationList.size()));
+	}
+	
+}

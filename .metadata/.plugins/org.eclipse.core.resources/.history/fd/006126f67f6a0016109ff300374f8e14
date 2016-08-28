@@ -1,0 +1,23 @@
+/*
+ * This class represents the specific publication of type "article", more commonly known
+ * as "journal"
+ */
+
+package edu.unsw.comp9321;
+
+public class PublicationArticle extends Publication{
+	public String rating = "";
+	public String number = "";
+	public String pages = "";
+	public String volume = "";
+	
+	public PublicationArticle() {
+		super();
+		this.type = "journal";
+	}
+	
+	public void showDetails() {
+		super.showDetails();
+	}
+
+}

@@ -1,0 +1,8 @@
+/*
+ * This class represents the specific publication of type "Incollection"
+ */
+package edu.unsw.comp9321;
+
+public class PublicationIncollection extends Publication {
+
+}

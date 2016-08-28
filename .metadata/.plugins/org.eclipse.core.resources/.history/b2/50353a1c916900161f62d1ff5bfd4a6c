@@ -1,0 +1,22 @@
+/*
+ * This class represents a single publication
+ */
+
+package edu.unsw.comp9321;
+
+import java.util.*;
+
+public class Publication {
+	public String type = "";									// type of publication
+	public String title = "";
+	public List<String> authors = new ArrayList<String>();
+	public List<String> editors = new ArrayList<String>();
+	public String pages;
+	public String volume;
+	public String year = "";
+	public String venue = "";									// place published
+	public String ee = "";										// link to publication
+	
+	public String series = "";
+	public String isbn = "";
+}

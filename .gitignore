@@ -1,0 +1,5 @@
+# Backup files
+*~
+
+# Ignore files in 'Resources' folder
+Resources/

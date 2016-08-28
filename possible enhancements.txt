@@ -1,0 +1,8 @@
+== Enhancements
+
+* Support multiple users from different sessions
+* Use ajax to add item to cart
+* Prettify layout
+* Allow users to add multiple copies of the same publications to their cart
+* Keep track of user's past 10 publication searches
+* Add a 'select all' button when selecting publications to remove in cart

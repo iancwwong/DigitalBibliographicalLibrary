@@ -1,0 +1,7 @@
+INDEX VERSION 1.126
+C:\Users\Ian\Desktop\16s2\COMP9321\Assignments\Ass1\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3099723137.index
+\DigitalBibliographicLibrary\src
+C:\Users\Ian\Desktop\16s2\COMP9321\Assignments\Ass1\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1900974168.index
+\DigitalBibliographicLibrary\src
+C:\Users\Ian\Desktop\16s2\COMP9321\Assignments\Ass1\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\310490681.index
+\DigitalBibliographicLibrary\src

@@ -1,0 +1,23 @@
+/*
+ * This class represents the model that will be used in the index page
+ */
+package edu.unsw.comp9321;
+
+import java.util.*;
+
+public class IndexBean {
+	public List<PublicationBean> publications = new ArrayList<PublicationBean>();
+	
+	public List<PublicationBean> getPublications() { 
+		return this.publications; 
+	}
+	
+	
+	// HELPER CLASS
+	public class PublicationBean {
+		public String id = "";
+		public String title = "";
+		public List<String> authors = new ArrayList<String>();
+		
+	}
+}

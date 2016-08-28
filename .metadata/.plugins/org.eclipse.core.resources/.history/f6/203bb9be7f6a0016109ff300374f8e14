@@ -1,0 +1,30 @@
+/*
+ * This class represents a single publication
+ */
+
+package edu.unsw.comp9321;
+
+import java.util.*;
+
+public class Publication {
+	public String type = "";									// type of publication
+	public String title = "";
+	public List<String> authors = new ArrayList<String>();
+	public List<String> editors = new ArrayList<String>();
+	public String year = "";
+	public String venue = "";									// place published
+	public List<String> urls = new ArrayList<String>();			// links to publication
+	
+	
+	public Publication() {}
+	
+	// Show details
+	public void showDetails() {
+		System.out.println("== Details of publication");
+		System.out.println("* Type: " + this.type);
+		System.out.println("* Title: " + this.title);
+		System.out.println("* Num Authors: " + this.authors.size());
+		System.out.println("* Num editors: " + this.editors.size());
+		System.out.println("* ")
+	}
+}

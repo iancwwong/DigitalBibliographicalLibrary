@@ -1,0 +1,38 @@
+== This file contains the schema of the different publication classes
+== NOTE: This is to be used in the entire application, regarding the fields
+== of the various classes that correspond to a specific type of publication
+
+= GENERIC PUBLICATION ATTRIBUTES
+= *NOTE: These fields will be contained in ALL publications, regardless of type
+* Type [string]
+* Title [string]
+* Authors [list]
+* Editors [list]
+* Year [string]
+* Venue [string]
+* Urls [list]
+* Cites [list]
+
+= ARTICLE SPECIFIC ATTRIBUTES
+* Rating [string]
+* Number [string]
+* Pages [string]
+* Volume [string]
+
+= INPROCEEDINGS SPECIFIC ATTRIBUTES
+* Pages [string]
+* Number [string]
+
+= PROCEEDINGS SPECIFIC ATTRIBUTES
+* ISBN [string]
+* Publisher [string]
+* Series [string]
+* Volume [string]
+* Number [string]
+
+= BOOK SPECIFIC ATTRIBUTES
+* Pages [string]
+* Publisher [string]
+* ISBN [string]
+* Series [string]
+* Volume [string]

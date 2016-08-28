@@ -1,0 +1,8 @@
+/*
+ * This class represents the specific publication of type "Proceedings"
+ */
+package edu.unsw.comp9321;
+
+public class PublicationProceedings extends Publication {
+
+}

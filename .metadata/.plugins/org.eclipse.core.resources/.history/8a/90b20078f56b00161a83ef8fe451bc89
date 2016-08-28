@@ -1,0 +1,53 @@
+/*
+ * This is the class that carries the details of a particular publication
+ */
+package edu.unsw.comp9321;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PublicationBean {
+	
+	// == GENERIC PUBLICATION ATTRIBUTES
+	public String id = "";
+	public String type = "";
+	public String title = "";
+	public List<String> authors = new ArrayList<String>();
+	public String formattedAuthors = "";
+	public List<String> editors = new ArrayList<String>();
+	public String year = "";
+	public String venue = "";
+	public List<String> urls = new ArrayList<String>();
+	public List<String> cites = new ArrayList<String>();
+	
+	// == PUBLICATION SPECIFIC ATTRIBUTES
+	// * Article
+	public String rating = "";
+	public String number = "";
+	public String pages = "";
+	public String volume = "";
+	
+	// Constructor when given the publication class
+	public PublicationBean(Publication newPublication) {
+		
+		// Consider generic fields
+		this.id = newPublication.id;
+		this.type = newPublication.type;
+		this.title = newPublication.title;
+		this.authors = newPublication.authors;
+		this.formattedAuthors = "";
+		for (String author : this.authors) {
+			this.formattedAuthors += author + "; ";
+		}
+		this.
+		
+		// Consider type-specific fields
+	}
+	
+	public String getId() { return this.id; }
+	public String getType() { return this.type; }
+	public String getTitle() { return this.title; }
+	public List<String> getAuthors() { return this.authors; }
+	public String getFormattedAuthors() { return this.formattedAuthors;	}
+		
+}
