@@ -31,11 +31,11 @@
     
 </head>
 <body>
-	<!-- Havbar -- >
-	<%@ include file="include/navbar.html"%>
 	
 	<!-- CONTENT -->
 	<div class="container">
+		<!-- Navbar -- >
+		<%@ include file="include/navbar.html"%>
 	
 		<center>
 		<h1>Welcome to the Digital Bibliographical Library!</h1>
@@ -93,7 +93,10 @@
 				</tr>
 			</c:forEach>
 		</table>
-	
+		
+		<!-- Footer -->
+		<%@ include file="include/footer.html"%>
+		
 	</div>
 	    
     <!-- ========= Bootstrap Core Javascript =========== -->

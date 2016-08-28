@@ -25,15 +25,16 @@
     <link href="css/navbar.css" rel="stylesheet">
 </head>
 <body>
-
-	<!-- navbar -->
-	<%@ include file="include/navbar.html"%>
 	
 	<!-- Publication Content -->
 	<div class="container">
+		
+		<!-- navbar -->
+		<%@ include file="include/navbar.html"%>
 	
+		<!-- Content -->
 		<center>
-			<h1> This is the publication page. </h1>
+			<h1>Viewing publication</h1>
 		</center>
 		<c:choose>
 			<c:when test="${empty publicationPageBean.publication.id}">
@@ -56,6 +57,9 @@
 				Add to cart (${publicationPageBean.publication.price})
 			</button>
 		</form>	
+		
+		<!-- Footer -->
+		<%@ include file="include/footer.html"%>
 	
 	</div>
   

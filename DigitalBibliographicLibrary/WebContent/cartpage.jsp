@@ -25,14 +25,15 @@
     
 </head>
 <body>
-	<!-- Navbar -- >
-	<%@ include file="include/navbar.html"%>
-	<center>	
-	<h1>Viewing cart</h1>
-	</center>
 	
 	<!-- cart content -->
 	<div class="container">
+	
+		<!-- Navbar -- >
+		<%@ include file="include/navbar.html"%>
+		<center>	
+		<h1>Viewing cart</h1>
+		</center>
 	
 		<!--  Check if cart is empty -->
 		<c:choose>
@@ -92,6 +93,9 @@
 				Back to search
 			</button>
 		</form>	
+		
+		<!-- Footer -->
+		<%@ include file="include/footer.html"%>
 		
 	</div>	
     
