@@ -106,19 +106,14 @@ public class ControllerServlet extends HttpServlet {
 			switch (action) {
 			
 				// user wants to see home page
-				case "viewIndexPage":
+				case "viewIndex":
 					prepareIndexPage(request);
 					redir_page = "indexpage.jsp";
 					redir_changed = true;
 					break;
 					
-				// user wants to see the description page
-				case "viewAboutPage":
-					redir_page = "aboutpage.jsp";
-					break;
-					
 				// user wants to see a particular publication
-				case "viewPublicationPage":
+				case "viewPublication":
 					preparePublicationPage(request);
 					redir_page = "publicationpage.jsp";
 					redir_changed = true;
@@ -130,7 +125,6 @@ public class ControllerServlet extends HttpServlet {
 					redir_page = "cartpage.jsp";
 					redir_changed = true;
 					break;
-					
 					
 				// user wants to add a publication to their cart
 				case "addPublicationToCart":

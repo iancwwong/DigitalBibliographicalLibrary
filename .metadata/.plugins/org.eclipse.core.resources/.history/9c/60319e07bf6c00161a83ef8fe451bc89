@@ -113,7 +113,6 @@ public class ControllerServlet extends HttpServlet {
 					break;
 					
 				// user wants to see the description page
-				case "viewAboutPage":
 					redir_page = "aboutpage.jsp";
 					break;
 					

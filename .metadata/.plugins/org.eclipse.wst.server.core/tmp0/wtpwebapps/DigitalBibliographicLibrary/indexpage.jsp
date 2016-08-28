@@ -82,7 +82,7 @@
 					</td>
 					<td>
 						<form action='control' method='POST'>
-							<input type='hidden' name="action" value="viewPublication"/>
+							<input type='hidden' name="action" value="viewPublicationPage"/>
 							<input type='hidden' name="pubID" value="${publication.id}"/>
 							<input type='hidden' name="pubType" value="${publication.type}"/>
 							<button type='submit' class="btn btn-default">
