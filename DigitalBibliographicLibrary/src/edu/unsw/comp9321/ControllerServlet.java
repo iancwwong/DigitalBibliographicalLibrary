@@ -131,6 +131,12 @@ public class ControllerServlet extends HttpServlet {
 					redir_changed = true;
 					break;
 					
+				// user wants to search basic fields
+				case "searchBasicFields":
+					prepareSearchPage(request);
+					redir_page = "indexpage.jsp";
+					redir_changed = true;
+					break;
 					
 				// user wants to add a publication to their cart
 				case "addPublicationToCart":
@@ -212,6 +218,17 @@ public class ControllerServlet extends HttpServlet {
 		
 		// Bind the cartPageBean to session
 		request.getSession().setAttribute("cartPageBean", cartPageBean);
+	}
+	
+	// Prepare the search page
+	private void prepareSearchPage(HttpServletRequest request) {
+		System.out.println("User wants to do a basic search!");
+		System.out.println("The values of fields to search for:");
+		System.out.println("* Title: " + request.getParameter("searchTitle"));
+		System.out.println("* Authors: " + request.getParameter("searchAuthors"));
+		System.out.println("* Type: " + request.getParameter("searchType"));
+		System.out.println("* Year: " + request.getParameter("searchYear"));
+		System.out.println("* Venue: " + request.getParameter("searchVenue"));
 	}
 	
 	// Add publication to user's cart

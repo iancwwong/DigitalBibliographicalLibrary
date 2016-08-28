@@ -25,7 +25,7 @@
 <body>
 	<div class="container">
 		<!--  Navbar -->
-		<%@ include file="include/navbar.html"%>
+		<%@ include file="include/navbar.jsp"%>
 	
 		<!-- Page Content -->
 		<h1>About</h1>
@@ -35,7 +35,7 @@
 		</p>
 		
 		<!-- Footer -->
-		<%@ include file="include/footer.html"%>
+		<%@ include file="include/footer.jsp"%>
 	
 	</div>
 

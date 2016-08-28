@@ -95,7 +95,7 @@
 		</form>	
 		
 		<!-- Footer -->
-		<%@ include file="include/footer.html"%>
+		<%@ include file="include/footer.jsp"%>
 		
 	</div>	
     

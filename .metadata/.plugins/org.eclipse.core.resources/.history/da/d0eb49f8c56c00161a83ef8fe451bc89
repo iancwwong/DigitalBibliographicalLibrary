@@ -34,6 +34,10 @@
 				</form>	
           	</li>
           </ul>
+          
+          <!-- Search bar -->
+          <%@ include file="include/searchbar.html"%>
+          
         </div>
       </div>
     </nav>

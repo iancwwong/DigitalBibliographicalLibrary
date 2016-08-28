@@ -30,7 +30,7 @@
 	<div class="container">
 		
 		<!-- navbar -->
-		<%@ include file="include/navbar.html"%>
+		<%@ include file="include/navbar.jsp"%>
 	
 		<!-- Content -->
 		<c:choose>
@@ -58,7 +58,7 @@
 		</form>	
 		
 		<!-- Footer -->
-		<%@ include file="include/footer.html"%>
+		<%@ include file="include/footer.jsp"%>
 	
 	</div>
   

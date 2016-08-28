@@ -28,6 +28,7 @@
     <!--  Page styling -->
     <link href="css/general.css" rel="stylesheet">
     <link href="css/navbar.css" rel="stylesheet">
+    <link href="css/searchbar.css" rel="stylesheet">
     
 </head>
 <body>
@@ -35,12 +36,20 @@
 	<!-- CONTENT -->
 	<div class="container">
 		<!-- Navbar -- >
-		<%@ include file="include/navbar.html"%>
+		<%@ include file="include/navbar.jsp"%>
 	
 		<h1>Welcome to the Digital Bibliographical Library!</h1>
 		<hr />
 				
 		<!-- Basic search -->
+		<h4>Basic search</h4>
+		<center>
+			<%@ include file="include/searchbar.jsp" %>
+		</center>
+		<br/>
+		<br/>
+		
+		<!-- Advanced search -->
 		
 		<!-- Random publications -->
 		<p><strong>Some interesting articles</strong></p>
@@ -94,7 +103,7 @@
 		</table>
 		
 		<!-- Footer -->
-		<%@ include file="include/footer.html"%>
+		<%@ include file="include/footer.jsp"%>
 		
 	</div>
 	    
