@@ -1,0 +1,17 @@
+/*
+ * This class represent the model for the search results page
+ */
+package edu.unsw.comp9321;
+import java.util.*;
+
+public class SearchPageBean {
+	public List<PublicationBean> results = new ArrayList<PublicationBean>();
+	
+	// Constructor given a list of publicattonss
+	public SearchPageBean(List<Publication> searchPublications) {
+		for (Publication publication : searchPublications) {
+			PublicationBean pb = new PublicationBean(publication);
+			this.results.add(pb);
+		}
+	}
+}

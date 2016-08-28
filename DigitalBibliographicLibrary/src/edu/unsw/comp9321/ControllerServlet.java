@@ -134,7 +134,7 @@ public class ControllerServlet extends HttpServlet {
 				// user wants to search basic fields
 				case "searchBasicFields":
 					prepareSearchPage(request);
-					redir_page = "indexpage.jsp";
+					redir_page = "searchresultspage.jsp";
 					redir_changed = true;
 					break;
 					
@@ -229,6 +229,19 @@ public class ControllerServlet extends HttpServlet {
 		System.out.println("* Type: " + request.getParameter("searchType"));
 		System.out.println("* Year: " + request.getParameter("searchYear"));
 		System.out.println("* Venue: " + request.getParameter("searchVenue"));
+		
+		// Search publication(s) specified by search fields
+		List<Publication> searchResults = findPublications(
+											request.getParameter("searchTitle"),
+											request.getParameter("searchAuthors"),
+											request.getParameter("searchType"),
+											request.getParameter("searchYear"),
+											request.getParameter("searchVenue")
+										  );
+		
+		// Construct searchPageBean, bind to session
+		SearchPageBean searchPageBean = new SearchPageBean(searchResults);
+		request.getSession().setAttribute("searchPageBean", searchPageBean);
 	}
 	
 	// Add publication to user's cart
@@ -327,6 +340,14 @@ public class ControllerServlet extends HttpServlet {
 		return null;			// not found
 	}
 	
+	// Find the list of publications that match query
+	public List<Publication> findPublications(String searchTitle, String searchAuthors, String searchType,
+												String searchYear, String searchVenue) {
+		
+		List<Publication> results = new ArrayList<Publication>();
+		return results;
+	}
+			
 	// Generate a unique id for a user
 	private String generateUserID() {
 		String uniqueID = UUID.randomUUID().toString();
