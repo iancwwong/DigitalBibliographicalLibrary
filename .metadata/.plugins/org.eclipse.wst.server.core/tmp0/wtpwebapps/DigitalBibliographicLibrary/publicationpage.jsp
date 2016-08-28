@@ -33,17 +33,16 @@
 		<%@ include file="include/navbar.html"%>
 	
 		<!-- Content -->
-		<center>
-			<h1>Viewing publication</h1>
-		</center>
 		<c:choose>
 			<c:when test="${empty publicationPageBean.publication.id}">
-			  <p>Error: Publication not found!</p>
+				<center><p>Error: Publication not found!</p></center>
 			</c:when>
 			
 			<c:otherwise>
-			  <p>ID: ${publicationPageBean.publication.id} </p>
-			  <p>Title: ${publicationPageBean.publication.title} </p>
+				<h1>Publication Details</h1>
+				<hr />
+				<p>ID: ${publicationPageBean.publication.id} </p>
+				<p>Title: ${publicationPageBean.publication.title} </p>
 			</c:otherwise>
 		</c:choose>
 		

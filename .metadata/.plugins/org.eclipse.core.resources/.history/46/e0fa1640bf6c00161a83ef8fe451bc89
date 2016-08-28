@@ -37,9 +37,10 @@
 		<!-- Navbar -- >
 		<%@ include file="include/navbar.html"%>
 	
+		<center>
 		<h1>Welcome to the Digital Bibliographical Library!</h1>
-		<hr />
-				
+		</center>
+		
 		<!-- Basic search -->
 		
 		<!-- Random publications -->

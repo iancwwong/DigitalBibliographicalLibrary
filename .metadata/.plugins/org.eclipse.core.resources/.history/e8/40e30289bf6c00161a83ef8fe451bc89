@@ -40,7 +40,7 @@
 			
 			<c:otherwise>
 				<h1>Publication Details</h1>
-				<hr />
+				<hr>
 				<p>ID: ${publicationPageBean.publication.id} </p>
 				<p>Title: ${publicationPageBean.publication.title} </p>
 			</c:otherwise>

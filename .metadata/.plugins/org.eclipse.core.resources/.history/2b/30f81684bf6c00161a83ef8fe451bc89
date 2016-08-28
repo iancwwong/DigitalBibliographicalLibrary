@@ -35,12 +35,11 @@
 		<!-- Content -->
 		<c:choose>
 			<c:when test="${empty publicationPageBean.publication.id}">
-				<center><p>Error: Publication not found!</p></center>
+				<p>Error: Publication not found!</p>
 			</c:when>
 			
 			<c:otherwise>
 				<h1>Publication Details</h1>
-				<hr />
 				<p>ID: ${publicationPageBean.publication.id} </p>
 				<p>Title: ${publicationPageBean.publication.title} </p>
 			</c:otherwise>

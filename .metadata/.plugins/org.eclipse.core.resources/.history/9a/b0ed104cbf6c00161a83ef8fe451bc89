@@ -31,10 +31,10 @@
 	
 		<!-- Navbar -- >
 		<%@ include file="include/navbar.html"%>
-		
+		<center>	
 		<h1>Viewing cart</h1>
-		<hr />	
-		
+		</center>
+	
 		<!--  Check if cart is empty -->
 		<c:choose>
 			
