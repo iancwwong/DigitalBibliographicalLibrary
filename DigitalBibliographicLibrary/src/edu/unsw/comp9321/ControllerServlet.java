@@ -238,14 +238,26 @@ public class ControllerServlet extends HttpServlet {
 		System.out.println("* Year: " + request.getParameter("searchYear"));
 		System.out.println("* Venue: " + request.getParameter("searchVenue"));
 		
-		// Search publication(s) specified by search fields
-		List<Publication> searchResults = findPublications(
-											request.getParameter("searchTitle"),
-											request.getParameter("searchAuthors"),
-											request.getParameter("searchType"),
-											request.getParameter("searchYear"),
-											request.getParameter("searchVenue")
-										  );
+		// Construct search criteria, based on what non-empty fields
+		HashMap<String, String> searchCriteria = new HashMap<String, String>();
+		if (!request.getParameter("searchTitle").equals("")) {
+			searchCriteria.put("searchTitle", request.getParameter("searchTitle"));
+		}
+		if (!request.getParameter("searchAuthors").equals("")) {
+			searchCriteria.put("searchAuthors", request.getParameter("searchAuthors"));
+		}
+		if (!request.getParameter("searchType").equals("")) {
+			searchCriteria.put("searchType", request.getParameter("searchType"));
+		}
+		if (!request.getParameter("searchYear").equals("")) {
+			searchCriteria.put("searchYear", request.getParameter("searchYear"));
+		}
+		if (!request.getParameter("searchVenue").equals("")) {
+			searchCriteria.put("searchVenue", request.getParameter("searchVenue"));
+		}
+		
+		// Find the matching publications
+		List<Publication> searchResults = findPublications(searchCriteria);
 		
 		// Construct searchPageBean, bind to session
 		SearchPageBean searchPageBean = new SearchPageBean(searchResults);
@@ -370,20 +382,106 @@ public class ControllerServlet extends HttpServlet {
 	}
 	
 	// Find the list of publications that match query
-	public List<Publication> findPublications(String searchTitle, String searchAuthors, String searchType,
-												String searchYear, String searchVenue) {
+	// Query contains:
+	//	* Title
+	//	* Authors
+	//	* Type
+	//	* Year
+	//	* Venue
+	public List<Publication> findPublications(HashMap<String, String> searchCriteria) {
 		
+		// Contains final results
 		List<Publication> results = new ArrayList<Publication>();
+		
+		// Early Exit when no search criteria provided
+		if (searchCriteria.size() == 0) {
+			return results;
+		}
 		
 		// Get the list to search for
 		List<Publication> pubsToSearch = new ArrayList<Publication>();
-		if (!searchType.equals("")) {
-			System.out.println("Type specified!");
+		
+		// Faster option: Check type
+		if (searchCriteria.containsKey("searchType") && 
+			!searchCriteria.get("searchType").equals("")) {
+			
+			String searchType = searchCriteria.get("searchType");
+			
+			// Check if such a type exists in database
+			if (this.publications.keySet().contains(searchType)) {
+				pubsToSearch = this.publications.get(searchType);
+			}
+			
+			// Case when no such type - early exit
+			return results;
+			
+		// Case when no type is provided - need looping through ALL publications
 		} else {
-			System.out.println("Type not specified...");
+			for (String pubType : this.publications.keySet()) {
+				for (Publication publication : this.publications.get(pubType)) {
+					pubsToSearch.add(publication);
+				}
+			}
+		}
+		
+		// Simple iteration over publications, adding those that match the criteria
+		for (Publication publication : pubsToSearch) {
+			if (matchBasicSearchCriteria(publication, searchCriteria)) {
+				results.add(publication);
+			}
 		}
 		
 		return results;
+	}
+	
+	// Determines whether a publication matches the search criteria
+	private boolean matchBasicSearchCriteria(Publication publication, HashMap<String, String> searchCriteria) {
+		
+		// Examine title equality
+		if (searchCriteria.containsKey("searchTitle")) {
+			if (!publication.title.contains(searchCriteria.get("searchTitle"))) {
+				return false;
+			}
+		}
+		
+		// Examine type equality
+		if (searchCriteria.containsKey("searchType")) {
+			if (!publication.type.equals(searchCriteria.get("searchType"))) {
+				return false;
+			}
+		}
+		
+		// Examine authors equality
+		if (searchCriteria.containsKey("searchAuthors")) {
+			List<String> searchAuthors = new ArrayList<String>();
+			String[] authors = searchCriteria.get("searchAuthors").split("; ");
+			for (String author : authors) {
+				searchAuthors.add(author);
+			}
+			for (String author : searchAuthors) {
+				if (!publication.authors.contains(author)) {
+					return false;
+				}
+			}
+		}
+		
+		// Examine year equality
+		if (searchCriteria.containsKey("searchYear")) {
+			if (!publication.year.equals(searchCriteria.get("searchYear"))) {
+				return false;
+			}
+		}
+		
+		// Examine venue equality
+		if (searchCriteria.containsKey("searchVenue")) {
+			if (!publication.venue.equals(searchCriteria.get("searchVenue"))) {
+				return false;
+			}
+		}
+		
+		// Reaching here means all criteria are matched
+		return true;
+		
 	}
 			
 	// Generate a unique id for a user
