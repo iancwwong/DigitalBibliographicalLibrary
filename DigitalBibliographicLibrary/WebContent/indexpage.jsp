@@ -53,51 +53,51 @@
 		
 		<!-- Random publications -->
 		<p><strong>Some interesting articles</strong></p>
-		<table class="table table-hover">
+		<table id="randPublicationsTable" class="table table-hover fixed">
 			<tr>
-				<th>Type</th>
-				<th>Details</th>
-				<th></th>
+				<th class="col-md-2">Type</th>
+				<th class="col-md-2">Details</th>
+				<th class="col-md-2"></th>
 			</tr>
 			<c:forEach var="publication" items="${indexPageBean.publications}">
 				<tr>
-					<td><p>${publication.type}</p></td>
-					<td>
-						<p><i>${publication.title}</i></p>
-						
-						<%-- Recognise the authors/editors appropriately --%>
-						<c:choose>
-							<c:when test="${empty publication.authors}">
-								<c:choose>
-								
-									<%-- Case when there are no recorded authors / editors --%>
-									<c:when test="${empty publication.editors}">
-										<p>By: <i>anonymous</i></p>
-									</c:when>
-									
-									<%-- Case when there are editors, no authors --%>
-									<c:otherwise>
-										<p>Edited by: ${publication.formattedEditors}</p>
-									</c:otherwise>
-								</c:choose>
-							</c:when>
-							
-							<%-- Authors exist for publication --%>
-							<c:otherwise>
-								<p>By: ${publication.formattedAuthors}</p>
-							</c:otherwise>
-						</c:choose>
-					</td>
-					<td>
+					<td class="col-md-2"><p>${publication.type}</p></td>
+					<td class="col-md-4">
 						<form action='control' method='POST'>
 							<input type='hidden' name="action" value="viewPublicationPage"/>
 							<input type='hidden' name="pubID" value="${publication.id}"/>
 							<input type='hidden' name="pubType" value="${publication.type}"/>
-							<button type='submit' class="btn btn-default">
-								View
+							<button type='submit' class="btn btn-link" style="text-align: left">
+								
+								<p><i>${publication.title}</i></p>
+								
+								<%-- Recognise the authors/editors appropriately --%>
+								<c:choose>
+									<c:when test="${empty publication.authors}">
+										<c:choose>
+										
+											<%-- Case when there are no recorded authors / editors --%>
+											<c:when test="${empty publication.editors}">
+												<p>By: <i>anonymous</i></p>
+											</c:when>
+											
+											<%-- Case when there are editors, no authors --%>
+											<c:otherwise>
+												<p>Edited by: ${publication.formattedEditors}</p>
+											</c:otherwise>
+										</c:choose>
+									</c:when>
+									
+									<%-- Authors exist for publication --%>
+									<c:otherwise>
+										<p>By: ${publication.formattedAuthors}</p>
+									</c:otherwise>
+								</c:choose>								
+								
 							</button> 
 						</form>
 					</td>
+					<td class="col-md-2"></td>
 				</tr>
 			</c:forEach>
 		</table>

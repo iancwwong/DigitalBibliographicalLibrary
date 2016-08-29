@@ -34,6 +34,7 @@
 		<!-- Page Content -->
 		<h1>Search Results</h1>
 		<hr/>
+		<br />
 		
 		<!--  Check whether there are results -->
 		<c:choose>
@@ -42,7 +43,7 @@
 			</c:when>
 			
 			<c:otherwise>
-				<center>There are ${fn:length(searchPageBean.results)} results!</center>
+				<p>There are ${fn:length(searchPageBean.results)} results!</p>
 				
 				<%-- Display 10 results from current page --%>
 				<table class="table table-hover">
@@ -58,45 +59,42 @@
 							<tr>
 								<td>${searchPageBean.results[loop.index].type}</td>
 								
-								<td>
-									<p><i>${searchPageBean.results[loop.index].title}</i></p>
-									
-									<%-- Recognise the authors/editors appropriately --%>
-									<c:choose>
-										<c:when test="${empty searchPageBean.results[loop.index].authors}">
-											<c:choose>
-											
-												<%-- Case when there are no recorded authors / editors --%>
-												<c:when test="${empty searchPageBean.results[loop.index].editors}">
-													<p>By: <i>anonymous</i></p>
-												</c:when>
-												
-												<%-- Case when there are editors, no authors --%>
-												<c:otherwise>
-													<p>Edited by: ${searchPageBean.results[loop.index].formattedEditors}</p>
-												</c:otherwise>
-											</c:choose>
-										</c:when>
-										
-										<%-- Authors exist for publication --%>
-										<c:otherwise>
-											<p>By: ${searchPageBean.results[loop.index].formattedAuthors}</p>
-										</c:otherwise>
-									</c:choose>
-								</td>
-								
-								<%-- View link for publication --%>
-								<td>
+								<td class="col-md-4">
 									<form action='control' method='POST'>
 										<input type='hidden' name="action" value="viewPublicationPage"/>
 										<input type='hidden' name="pubID" value="${searchPageBean.results[loop.index].id}"/>
 										<input type='hidden' name="pubType" value="${searchPageBean.results[loop.index].type}"/>
-										<button type='submit' class="btn btn-default">
-											View
+										<button type='submit' class="btn btn-link" style="text-align: left">
+											
+											<p><i>${searchPageBean.results[loop.index].title}</i></p>
+											
+											<%-- Recognise the authors/editors appropriately --%>
+											<c:choose>
+												<c:when test="${empty searchPageBean.results[loop.index].authors}">
+													<c:choose>
+													
+														<%-- Case when there are no recorded authors / editors --%>
+														<c:when test="${empty searchPageBean.results[loop.index].editors}">
+															<p>By: <i>anonymous</i></p>
+														</c:when>
+														
+														<%-- Case when there are editors, no authors --%>
+														<c:otherwise>
+															<p>Edited by: ${searchPageBean.results[loop.index].formattedEditors}</p>
+														</c:otherwise>
+													</c:choose>
+												</c:when>
+												
+												<%-- Authors exist for publication --%>
+												<c:otherwise>
+													<p>By: ${searchPageBean.results[loop.index].formattedAuthors}</p>
+												</c:otherwise>
+											</c:choose>								
+											
 										</button> 
 									</form>
 								</td>
-								
+								<td></td>
 							</tr>
 						</c:if>
 					</c:forEach>
