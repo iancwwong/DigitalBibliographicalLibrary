@@ -53,16 +53,19 @@
 		
 		<!-- Random publications -->
 		<p><strong>Some interesting articles</strong></p>
-		<table id="randPublicationsTable" class="table table-hover fixed">
+		<table id="randPublicationsTable" class="table table-hover">
+			<col width="100px" />
+			<col width="600px" />
+			<col width="15px" />
 			<tr>
-				<th class="col-md-2">Type</th>
-				<th class="col-md-2">Details</th>
-				<th class="col-md-2"></th>
+				<th>Type</th>
+				<th>Details</th>
+				<th></th>
 			</tr>
 			<c:forEach var="publication" items="${indexPageBean.publications}">
 				<tr>
-					<td class="col-md-2"><p>${publication.type}</p></td>
-					<td class="col-md-4">
+					<td ><p>${publication.type}</p></td>
+					<td style="word-wrap: break-word">
 						<form action='control' method='POST'>
 							<input type='hidden' name="action" value="viewPublicationPage"/>
 							<input type='hidden' name="pubID" value="${publication.id}"/>

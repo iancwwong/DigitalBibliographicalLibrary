@@ -34,6 +34,7 @@
 		<!-- Page Content -->
 		<h1>Search Results</h1>
 		<hr/>
+		<br />
 		
 		<!--  Check whether there are results -->
 		<c:choose>
@@ -42,7 +43,7 @@
 			</c:when>
 			
 			<c:otherwise>
-				<center>There are ${fn:length(searchPageBean.results)} results!</center>
+				<p>There are ${fn:length(searchPageBean.results)} results!</p>
 				
 				<%-- Display 10 results from current page --%>
 				<table class="table table-hover">

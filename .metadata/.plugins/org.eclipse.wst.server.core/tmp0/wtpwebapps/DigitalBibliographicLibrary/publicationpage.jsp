@@ -33,29 +33,62 @@
 		<%@ include file="include/navbar.jsp"%>
 	
 		<!-- Content -->
+		<h1>View Publication</h1>
+		<hr />
+		<br />
+		
 		<c:choose>
 			<c:when test="${empty publicationPageBean.publication.id}">
 				<center><p>Error: Publication not found!</p></center>
 			</c:when>
 			
 			<c:otherwise>
-				<h1>Publication Details</h1>
-				<hr />
-				<p>ID: ${publicationPageBean.publication.id} </p>
-				<p>Title: ${publicationPageBean.publication.title} </p>
+				<center>
+					<table>
+						<col width="370">
+						<col width="400">
+						<tr>
+							<td>
+								<center>
+									<%-- Select appropriate image icon based on type --%>
+									<img src="img/icon_${publicationPageBean.publication.type}.png" class="img" width="300" height="300"> 									
+								</center>
+							</td>
+							<td>
+								<div class="panel panel-default">
+									<strong>Details</strong>
+									<hr />
+									
+								    <table class="table">
+								    	<col width="80" />
+								    	<col width="320" />
+								    	<tr>
+								    		<td><strong>Title:</strong></td>
+								    		<td style="word-wrap: break-word">${publicationPageBean.publication.title}</td>
+								    	</tr>
+								    	<tr>
+								    		<td><strong>Authors:</strong></td>
+								    		<td style="word-wrap: break-word">${publicationPageBean.publication.formattedAuthors}</td>
+								    	</tr>
+								    </table>
+								    
+								    <%--  Add item to cart --%>
+								    <br />
+									<form action='control' method='POST'>
+										<input type='hidden' name="action" value="addPublicationToCart"/>
+										<input type='hidden' name="pubID" value="${publicationPageBean.publication.id}"/>
+										<input type='hidden' name="pubType" value="${publicationPageBean.publication.type}"/>
+										<button type="submit" class="btn btn-primary btn-sm">
+											Add to cart (${publicationPageBean.publication.price})
+										</button>
+									</form>	
+								</div>
+							</td>
+						</tr>
+					</table>
+				</center>
 			</c:otherwise>
 		</c:choose>
-		
-		<!--  Add item to cart 
-		================================================ -->
-		<form action='control' method='POST'>
-			<input type='hidden' name="action" value="addPublicationToCart"/>
-			<input type='hidden' name="pubID" value="${publicationPageBean.publication.id}"/>
-			<input type='hidden' name="pubType" value="${publicationPageBean.publication.type}"/>
-			<button type="submit" class="btn btn-info btn-sm">
-				Add to cart (${publicationPageBean.publication.price})
-			</button>
-		</form>	
 		
 		<!-- Footer -->
 		<%@ include file="include/footer.jsp"%>
