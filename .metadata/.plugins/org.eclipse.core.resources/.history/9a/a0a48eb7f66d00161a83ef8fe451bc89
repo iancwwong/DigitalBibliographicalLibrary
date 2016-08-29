@@ -35,7 +35,7 @@ public class Cart {
 	public void removePublications(String[] pubIDs) {
 		
 		// If pubIDs empty, early exit
-		if (pubIDs.length == 0) {
+		if (pubIDs.length() == 0) {
 			return;
 		}
 		

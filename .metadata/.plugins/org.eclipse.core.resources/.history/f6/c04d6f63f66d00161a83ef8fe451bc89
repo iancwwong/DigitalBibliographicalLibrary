@@ -83,10 +83,6 @@
 									    		<td><strong>Editors:</strong></td>
 									    		<td style="word-wrap: break-word">${publicationPageBean.publication.formattedEditors}</td>
 									    	</tr>
-									    	<tr>
-									    		<td><strong>Year:</strong></td>
-									    		<td style="word-wrap: break-word">${publicationPageBean.publication.year}</td>
-									    	</tr>									    	
 									    </table>
 									    
 									    <%--  Add item to cart --%>

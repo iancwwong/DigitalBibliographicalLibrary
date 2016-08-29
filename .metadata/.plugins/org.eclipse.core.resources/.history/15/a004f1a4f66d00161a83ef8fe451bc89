@@ -34,11 +34,6 @@ public class Cart {
 	// Remove a set of publications, given their ID's
 	public void removePublications(String[] pubIDs) {
 		
-		// If pubIDs empty, early exit
-		if (pubIDs.length == 0) {
-			return;
-		}
-		
 		// Find each publication, and remove
 		// NOTE: THIS IS A VERY HACKY WAY AT THE MOMENT!!
 		List<PublicationBean> publicationsToRemove = new ArrayList<PublicationBean>();
