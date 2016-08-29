@@ -49,10 +49,11 @@
 				<c:forEach begin="${(searchPageBean.currPage - 1)* searchPageBean.numItemsPerPage}" 
 						   end="${(searchPageBean.currPage - 1)* searchPageBean.numItemsPerPage + searchPageBean.numItemsPerPage - 1}" 
 						   varStatus="loop">
-					Index: ${loop.index}<br/>
+					<c:if test="${loop.index < fn:length(searchPageBean.results)}">
+						Index: ${loop.index}<br/>
+					</c:if>
 				</c:forEach>
-				
-				<%-- Page navigation links --%>
+								<%-- Page navigation links --%>
 				<%-- Previous page link --%>
 				<c:choose>
 					<c:when test="${searchPageBean.currPage != 1}">

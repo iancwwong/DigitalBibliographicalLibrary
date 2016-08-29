@@ -52,3 +52,14 @@
 0:0:0:0:0:0:0:1 - - [29/Aug/2016:18:38:22 +1000] "POST /DigitalBibliographicLibrary/control HTTP/1.1" 200 3402
 0:0:0:0:0:0:0:1 - - [29/Aug/2016:18:38:24 +1000] "POST /DigitalBibliographicLibrary/control HTTP/1.1" 200 3402
 0:0:0:0:0:0:0:1 - - [29/Aug/2016:18:38:25 +1000] "POST /DigitalBibliographicLibrary/control HTTP/1.1" 200 3279
+127.0.0.1 - - [29/Aug/2016:18:40:36 +1000] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [29/Aug/2016:18:40:38 +1000] "GET /DigitalBibliographicLibrary/ HTTP/1.1" 200 12868
+0:0:0:0:0:0:0:1 - - [29/Aug/2016:18:40:40 +1000] "POST /DigitalBibliographicLibrary/control HTTP/1.1" 500 4461
+0:0:0:0:0:0:0:1 - - [29/Aug/2016:18:41:05 +1000] "GET /DigitalBibliographicLibrary/ HTTP/1.1" 200 12365
+0:0:0:0:0:0:0:1 - - [29/Aug/2016:18:41:08 +1000] "POST /DigitalBibliographicLibrary/control HTTP/1.1" 200 3413
+0:0:0:0:0:0:0:1 - - [29/Aug/2016:18:41:10 +1000] "POST /DigitalBibliographicLibrary/control HTTP/1.1" 200 3550
+0:0:0:0:0:0:0:1 - - [29/Aug/2016:18:41:12 +1000] "POST /DigitalBibliographicLibrary/control HTTP/1.1" 200 3550
+0:0:0:0:0:0:0:1 - - [29/Aug/2016:18:41:13 +1000] "POST /DigitalBibliographicLibrary/control HTTP/1.1" 200 3311
+0:0:0:0:0:0:0:1 - - [29/Aug/2016:18:41:17 +1000] "POST /DigitalBibliographicLibrary/control HTTP/1.1" 200 3550
+0:0:0:0:0:0:0:1 - - [29/Aug/2016:18:41:28 +1000] "POST /DigitalBibliographicLibrary/control HTTP/1.1" 200 3550
+0:0:0:0:0:0:0:1 - - [29/Aug/2016:18:41:29 +1000] "POST /DigitalBibliographicLibrary/control HTTP/1.1" 200 3413
