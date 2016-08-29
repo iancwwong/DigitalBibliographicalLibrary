@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 
 <!-- JSLT -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -50,9 +50,7 @@
 						   end="${(searchPageBean.currPage - 1)* searchPageBean.numItemsPerPage + searchPageBean.numItemsPerPage - 1}" 
 						   varStatus="loop">
 					<c:if test="${loop.index < fn:length(searchPageBean.results)}">
-						<p>ID: ${searchPageBean.results[loop.index].id}</p>
-						<p>Title: ${searchPageBean.results[loop.index].title}</p>
-						<br/>
+						<p>Title: ${searchPageBean.results[loop.index]}<br/>
 					</c:if>
 				</c:forEach>
 								<%-- Page navigation links --%>

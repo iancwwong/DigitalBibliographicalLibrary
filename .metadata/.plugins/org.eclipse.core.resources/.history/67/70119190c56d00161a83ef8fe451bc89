@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE Cast SYSTEM "dblp.dtd">
 <dblp>
-<article mdate="2012-10-22" key="journals/mj/LoC12">
-<author>Yu-Lung Lo</author>
-<author>Wei-Jen Chen</author>
-<title>A 0.7 V input output-capacitor-free digitally controlled low-dropout regulator with high current efficiency in 0.35 &#956;m CMOS technology.</title>
-<pages>756-765</pages>
-<year>2012</year>
-<volume>43</volume>
-<journal>Microelectronics Journal</journal>
-<number>11</number>
-<ee>http://dx.doi.org/10.1016/j.mejo.2012.07.008</ee>
-<url>db/journals/mj/mj43.html#LoC12</url>
-</article>
 <article mdate="2009-12-17" key="journals/csi/WatersPC09">
 <author>Jeff Waters</author>
 <author>Brenda J. Powers</author>

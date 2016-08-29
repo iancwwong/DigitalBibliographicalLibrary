@@ -30,7 +30,7 @@ public class ControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	// xml filename for dataset
-	private String xmlFilename = "/DATA-INF/test.xml";
+	private String xmlFilename = "/DATA-INF/dblp.xml";
 	
 	// Store the publications, hashed by type
 	private HashMap<String, ArrayList<Publication>> publications = new HashMap<String, ArrayList<Publication>>();

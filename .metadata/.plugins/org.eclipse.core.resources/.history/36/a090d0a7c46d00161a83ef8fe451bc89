@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 
 <!-- JSLT -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -52,6 +52,7 @@
 					<c:if test="${loop.index < fn:length(searchPageBean.results)}">
 						<p>ID: ${searchPageBean.results[loop.index].id}</p>
 						<p>Title: ${searchPageBean.results[loop.index].title}</p>
+						<
 						<br/>
 					</c:if>
 				</c:forEach>
