@@ -52,7 +52,7 @@
 		<!-- Advanced search -->
 		<hr/>
 		<h4>Advanced search</h4>
-			<%@ include file="include/advancedsearchform.jsp" %>		
+		
 		<br/>
 		<br/>
 		

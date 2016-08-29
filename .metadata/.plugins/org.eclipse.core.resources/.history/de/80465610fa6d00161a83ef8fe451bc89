@@ -7,7 +7,7 @@ body {
 
 // Footer
 footer {
-  background-color: #555;
+  background-color: #000;
   color: white;
   padding: 15px;
 }

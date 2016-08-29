@@ -85,3 +85,15 @@
 0:0:0:0:0:0:0:1 - - [30/Aug/2016:00:40:14 +1000] "POST /DigitalBibliographicLibrary/control HTTP/1.1" 200 4728
 0:0:0:0:0:0:0:1 - - [30/Aug/2016:00:40:16 +1000] "POST /DigitalBibliographicLibrary/control HTTP/1.1" 200 4270
 0:0:0:0:0:0:0:1 - - [30/Aug/2016:00:40:24 +1000] "POST /DigitalBibliographicLibrary/control HTTP/1.1" 500 1522
+127.0.0.1 - - [30/Aug/2016:01:05:57 +1000] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [30/Aug/2016:01:06:04 +1000] "GET /DigitalBibliographicLibrary/ HTTP/1.1" 200 14659
+0:0:0:0:0:0:0:1 - - [30/Aug/2016:01:06:04 +1000] "GET /DigitalBibliographicLibrary/css/general.css HTTP/1.1" 200 173
+127.0.0.1 - - [30/Aug/2016:01:06:40 +1000] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [30/Aug/2016:01:06:43 +1000] "GET /DigitalBibliographicLibrary/ HTTP/1.1" 200 15081
+0:0:0:0:0:0:0:1 - - [30/Aug/2016:01:06:43 +1000] "GET /DigitalBibliographicLibrary/css/general.css HTTP/1.1" 200 172
+0:0:0:0:0:0:0:1 - - [30/Aug/2016:01:06:54 +1000] "POST /DigitalBibliographicLibrary/control HTTP/1.1" 200 4718
+0:0:0:0:0:0:0:1 - - [30/Aug/2016:01:06:54 +1000] "GET /DigitalBibliographicLibrary/css/general.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [30/Aug/2016:01:06:54 +1000] "GET /DigitalBibliographicLibrary/css/publicationpage.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [30/Aug/2016:01:06:54 +1000] "GET /DigitalBibliographicLibrary/img/icon_incollection.png HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [30/Aug/2016:01:07:18 +1000] "POST /DigitalBibliographicLibrary/control HTTP/1.1" 200 15246
+0:0:0:0:0:0:0:1 - - [30/Aug/2016:01:07:18 +1000] "GET /DigitalBibliographicLibrary/css/general.css HTTP/1.1" 304 -
