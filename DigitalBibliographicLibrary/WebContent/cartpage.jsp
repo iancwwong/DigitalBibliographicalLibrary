@@ -30,7 +30,7 @@
 	<div class="container">
 	
 		<!-- Navbar -- >
-		<%@ include file="include/navbar.html"%>
+		<%@ include file="include/navbar.jsp"%>
 		
 		<h1>Viewing cart</h1>
 		<hr />	
@@ -40,7 +40,7 @@
 			
 			<%-- Items exist in cart: Construct table --%>
 			<c:when test="${cartPageBean.cart.numItems > 0}">
-				<form action='control' method='POST'>
+				<form action='control' method='POST' style="float:left">
 					<table class="table table-hover">
 						<tr>
 							<th>
@@ -81,6 +81,7 @@
 			
 			<c:when test="${cartPageBean.cart.numItems == 0}">
 				<strong>Shopping Cart is Empty!</strong>
+				<br />
 			</c:when>
 			
 		</c:choose>

@@ -30,7 +30,7 @@ public class ControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	// xml filename for dataset
-	private String xmlFilename = "/DATA-INF/test.xml";
+	private String xmlFilename = "/DATA-INF/dblp.xml";
 	
 	// Store the publications, hashed by type
 	private HashMap<String, ArrayList<Publication>> publications = new HashMap<String, ArrayList<Publication>>();
@@ -375,9 +375,12 @@ public class ControllerServlet extends HttpServlet {
 		
 		List<Publication> results = new ArrayList<Publication>();
 		
-		// FOR NOW, RETURN 35 ITEMS
-		for (int i = 0; i < 36; i++) {
-			results.add(getRandomPublication());
+		// Get the list to search for
+		List<Publication> pubsToSearch = new ArrayList<Publication>();
+		if (!searchType.equals("")) {
+			System.out.println("Type specified!");
+		} else {
+			System.out.println("Type not specified...");
 		}
 		
 		return results;

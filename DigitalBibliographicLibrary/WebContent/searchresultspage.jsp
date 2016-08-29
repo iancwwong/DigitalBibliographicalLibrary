@@ -42,20 +42,67 @@
 			</c:when>
 			
 			<c:otherwise>
-				<center>There are ${fn:length(searchPageBean.results)} results</center>
+				<center>There are ${fn:length(searchPageBean.results)} results!</center>
 				
 				<%-- Display 10 results from current page --%>
-				<p>Viewing items:</p>
-				<c:forEach begin="${(searchPageBean.currPage - 1)* searchPageBean.numItemsPerPage}" 
-						   end="${(searchPageBean.currPage - 1)* searchPageBean.numItemsPerPage + searchPageBean.numItemsPerPage - 1}" 
-						   varStatus="loop">
-					<c:if test="${loop.index < fn:length(searchPageBean.results)}">
-						<p>ID: ${searchPageBean.results[loop.index].id}</p>
-						<p>Title: ${searchPageBean.results[loop.index].title}</p>
-						<br/>
-					</c:if>
-				</c:forEach>
-								<%-- Page navigation links --%>
+				<table class="table table-hover">
+					<tr>
+						<th>Type</th>
+						<th>Details</th>
+						<th></th>
+					</tr>
+					<c:forEach begin="${(searchPageBean.currPage - 1)* searchPageBean.numItemsPerPage}" 
+							   end="${(searchPageBean.currPage - 1)* searchPageBean.numItemsPerPage + searchPageBean.numItemsPerPage - 1}" 
+							   varStatus="loop">
+						<c:if test="${loop.index < fn:length(searchPageBean.results)}">
+							<tr>
+								<td>${searchPageBean.results[loop.index].type}</td>
+								
+								<td>
+									<p><i>${searchPageBean.results[loop.index].title}</i></p>
+									
+									<%-- Recognise the authors/editors appropriately --%>
+									<c:choose>
+										<c:when test="${empty searchPageBean.results[loop.index].authors}">
+											<c:choose>
+											
+												<%-- Case when there are no recorded authors / editors --%>
+												<c:when test="${empty searchPageBean.results[loop.index].editors}">
+													<p>By: <i>anonymous</i></p>
+												</c:when>
+												
+												<%-- Case when there are editors, no authors --%>
+												<c:otherwise>
+													<p>Edited by: ${searchPageBean.results[loop.index].formattedEditors}</p>
+												</c:otherwise>
+											</c:choose>
+										</c:when>
+										
+										<%-- Authors exist for publication --%>
+										<c:otherwise>
+											<p>By: ${searchPageBean.results[loop.index].formattedAuthors}</p>
+										</c:otherwise>
+									</c:choose>
+								</td>
+								
+								<%-- View link for publication --%>
+								<td>
+									<form action='control' method='POST'>
+										<input type='hidden' name="action" value="viewPublicationPage"/>
+										<input type='hidden' name="pubID" value="${searchPageBean.results[loop.index].id}"/>
+										<input type='hidden' name="pubType" value="${searchPageBean.results[loop.index].type}"/>
+										<button type='submit' class="btn btn-default">
+											View
+										</button> 
+									</form>
+								</td>
+								
+							</tr>
+						</c:if>
+					</c:forEach>
+				</table>
+				
+				<%-- Page navigation links --%>
 				<%-- Previous page link --%>
 				<c:choose>
 					<c:when test="${searchPageBean.currPage != 1}">

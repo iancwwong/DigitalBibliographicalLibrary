@@ -23,7 +23,6 @@ public class SearchPageBean {
 		
 		// Determine number of pages
 		this.totalPages = (int) Math.ceil(new Double(this.results.size()) / new Double(this.numItemsPerPage));
-		System.out.println("total pages: " + this.totalPages);
 	}
 	
 	// getters
