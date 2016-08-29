@@ -376,7 +376,7 @@ public class ControllerServlet extends HttpServlet {
 		List<Publication> results = new ArrayList<Publication>();
 		
 		// FOR NOW, RETURN 35 ITEMS
-		for (int i = 0; i < 36; i++) {
+		for (int i = 0; i < 34; i++) {
 			results.add(getRandomPublication());
 		}
 		

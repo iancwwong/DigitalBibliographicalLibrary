@@ -65,7 +65,7 @@
 						</form>	
 					</c:when>
 					<c:otherwise>
-						<button type="button" class="btn btn-link disabled" style="float:left">
+						<button type="button" class="btn btn-link disabled">
 							<span class="glyphicon glyphicon-chevron-left"></span>
 							Previous
 						</button>					
@@ -75,7 +75,7 @@
 				<%-- Next page link --%>
 				<c:choose>
 					<c:when test="${searchPageBean.currPage != searchPageBean.totalPages}">
-						<form action='control' method='POST'>
+						<form action='control' method='POST' style="float:right">
 							<input type='hidden' name="action" value="viewNextSearchPage"/>
 							<button type="submit" class="btn btn-link">
 								Next

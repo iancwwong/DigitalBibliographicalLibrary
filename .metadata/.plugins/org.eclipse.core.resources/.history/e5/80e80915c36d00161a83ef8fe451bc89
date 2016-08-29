@@ -22,11 +22,8 @@ public class SearchPageBean {
 		}
 		
 		// Determine number of pages
-		System.out.println("Num results: " + this.results.size());
-		System.out.println("Num items per page: " + this.numItemsPerPage);
-		System.out.println("Divided: " + new Double(this.results.size()) / new Double(this.numItemsPerPage));
-		System.out.println(Math.ceil(new Double(this.results.size()) / new Double(this.numItemsPerPage)));
-		this.totalPages = (int) Math.ceil(new Double(this.results.size()) / new Double(this.numItemsPerPage));
+		System.out.println(Math.ceil(this.results.size() / this.numItemsPerPage);
+		this.totalPages = (int) Math.ceil(this.results.size() / this.numItemsPerPage);
 		System.out.println("total pages: " + this.totalPages);
 	}
 	

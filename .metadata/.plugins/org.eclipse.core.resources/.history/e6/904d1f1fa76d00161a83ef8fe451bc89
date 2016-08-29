@@ -65,7 +65,7 @@
 						</form>	
 					</c:when>
 					<c:otherwise>
-						<button type="button" class="btn btn-link disabled" style="float:left">
+						<button type="button" class="btn btn-link disabled">
 							<span class="glyphicon glyphicon-chevron-left"></span>
 							Previous
 						</button>					
