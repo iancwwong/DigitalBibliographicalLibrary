@@ -6,3 +6,4 @@
 * Allow users to add multiple copies of the same publications to their cart
 * Keep track of user's past 10 publication searches
 * Add a 'select all' button when selecting publications to remove in cart
+* Allow users to change different number of view items on search page

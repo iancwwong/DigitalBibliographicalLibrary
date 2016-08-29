@@ -42,7 +42,55 @@
 			</c:when>
 			
 			<c:otherwise>
-				<center>There are ${fn:length(searchPageBean.results)}</center>
+				<center>There are ${fn:length(searchPageBean.results)} results</center>
+				
+				<%-- Display 10 results from current page --%>
+				<p>Viewing items:</p>
+				<c:forEach begin="${(searchPageBean.currPage - 1)* searchPageBean.numItemsPerPage}" 
+						   end="${(searchPageBean.currPage - 1)* searchPageBean.numItemsPerPage + searchPageBean.numItemsPerPage - 1}" 
+						   varStatus="loop">
+					Index: ${loop.index}<br/>
+				</c:forEach>
+				
+				<%-- Page navigation links --%>
+				<%-- Previous page link --%>
+				<c:choose>
+					<c:when test="${searchPageBean.currPage != 1}">
+						<form action='control' method='POST' style="float:left">
+							<input type='hidden' name="action" value="viewPreviousSearchPage"/>
+							<button type="submit" class="btn btn-link">
+								<span class="glyphicon glyphicon-chevron-left"></span>
+								Previous
+							</button>
+						</form>	
+					</c:when>
+					<c:otherwise>
+						<button type="button" class="btn btn-link disabled">
+							<span class="glyphicon glyphicon-chevron-left"></span>
+							Previous
+						</button>					
+					</c:otherwise>
+				</c:choose>
+				
+				<%-- Next page link --%>
+				<c:choose>
+					<c:when test="${searchPageBean.currPage != searchPageBean.totalPages}">
+						<form action='control' method='POST' style="float:right">
+							<input type='hidden' name="action" value="viewNextSearchPage"/>
+							<button type="submit" class="btn btn-link">
+								Next
+								<span class="glyphicon glyphicon-chevron-right"></span>
+							</button>
+						</form>	
+					</c:when>
+					<c:otherwise>
+						<button type="button" class="btn btn-link disabled">
+							Next
+							<span class="glyphicon glyphicon-chevron-right"></span>
+						</button>					
+					</c:otherwise>
+				</c:choose>
+				
 			</c:otherwise>
 		</c:choose>
 		

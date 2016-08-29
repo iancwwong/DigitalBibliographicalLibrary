@@ -138,6 +138,14 @@ public class ControllerServlet extends HttpServlet {
 					redir_changed = true;
 					break;
 					
+				// User wants to navigate in the search results
+				case "viewPreviousSearchPage":
+				case "viewNextSearchPage":
+					navigateSearchPage(request);
+					redir_page = "searchresultspage.jsp";
+					redir_changed = true;
+					break;
+					
 				// user wants to add a publication to their cart
 				case "addPublicationToCart":
 					addPublicationToCart(request);
@@ -244,6 +252,27 @@ public class ControllerServlet extends HttpServlet {
 		request.getSession().setAttribute("searchPageBean", searchPageBean);
 	}
 	
+	// Navigate the search results page by manipulating searchPageBean
+	private void navigateSearchPage(HttpServletRequest request) {
+		String action = request.getParameter("action");
+		SearchPageBean searchPageBean = (SearchPageBean) request.getSession().getAttribute("searchPageBean");
+		
+		// Determine whether user wants to go to next or previous results
+		switch (action) {
+			
+			case "viewPreviousSearchPage":
+				searchPageBean.currPage = searchPageBean.currPage - 1;
+				break;
+				
+			case "viewNextSearchPage":
+				searchPageBean.currPage = searchPageBean.currPage + 1;
+				break;
+		
+			default:
+				break;
+		}
+	}
+	
 	// Add publication to user's cart
 	private void addPublicationToCart(HttpServletRequest request) {
 		// Obtain the publication object specified in the request
@@ -345,6 +374,12 @@ public class ControllerServlet extends HttpServlet {
 												String searchYear, String searchVenue) {
 		
 		List<Publication> results = new ArrayList<Publication>();
+		
+		// FOR NOW, RETURN 35 ITEMS
+		for (int i = 0; i < 35; i++) {
+			results.add(getRandomPublication());
+		}
+		
 		return results;
 	}
 			
