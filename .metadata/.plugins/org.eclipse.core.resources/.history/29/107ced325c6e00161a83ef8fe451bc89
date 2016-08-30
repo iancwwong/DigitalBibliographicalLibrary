@@ -1,0 +1,34 @@
+// Opens ALL advanced search fields
+function openAdvancedSearchOptions() {
+	var searchContainer = document.getElementById("searchContainer");
+	
+	if (searchContainer.innerHTML === "") {
+		
+		searchContainer.innerHTML = '<h2>Advanced search</h2><hr/><br/>';
+		
+		// Prepare the form
+		searchContainer.innerHTML += '<form class="form-horizontal">';
+		
+		// Construct search fields
+		
+		// Add submit button
+		searchContainer.innerHTML += '<div class="form-group">'
+											+ '<div>'
+												+ '<input type="hidden" name="action" value="searchAdvancedFields"/>'
+												+ '<button type="submit" class="btn btn-primary">'
+												+ 'Search&nbsp;'
+												+ '<span class="glyphicon glyphicon-search" aria-hidden="true"></span>'
+												+ '</button>'
+											+ '</div>'
+										+	'</div>';
+		
+		// Close form
+		searchContainer.innerHTML += '</form>';		
+		
+	} else {
+		searchContainer.innerHTML = "";
+	}
+
+}
+
+

@@ -138,6 +138,20 @@ public class ControllerServlet extends HttpServlet {
 					redir_changed = true;
 					break;
 					
+				// User wants to search advanced fields
+				case "searchAdvancedFields":
+					System.out.println("User wants to do an advanced search!");
+					System.out.println("* volume: " + request.getParameter("searchVolume"));
+					System.out.println("* number: " + request.getParameter("searchNumber"));
+					System.out.println("* pages: " + request.getParameter("searchPages"));
+					System.out.println("* publisher: " + request.getParameter("searchPublisher"));
+					System.out.println("* ISBN: " + request.getParameter("searchISBN"));
+					System.out.println("* series: " + request.getParameter("searchSeries"));
+					//prepareSearchPage(request);
+					//redir_page = "searchresultspage.jsp";
+					//redir_changed = true;
+					break;
+					
 				// User wants to navigate in the search results
 				case "viewPreviousSearchPage":
 				case "viewNextSearchPage":
@@ -230,13 +244,6 @@ public class ControllerServlet extends HttpServlet {
 	
 	// Prepare the search page
 	private void prepareSearchPage(HttpServletRequest request) {
-		System.out.println("User wants to do a basic search!");
-		System.out.println("The values of fields to search for:");
-		System.out.println("* Title: " + request.getParameter("searchTitle"));
-		System.out.println("* Authors: " + request.getParameter("searchAuthors"));
-		System.out.println("* Type: " + request.getParameter("searchType"));
-		System.out.println("* Year: " + request.getParameter("searchYear"));
-		System.out.println("* Venue: " + request.getParameter("searchVenue"));
 		
 		// Construct search criteria, based on what non-empty fields
 		HashMap<String, String> searchCriteria = new HashMap<String, String>();
@@ -408,12 +415,15 @@ public class ControllerServlet extends HttpServlet {
 			String searchType = searchCriteria.get("searchType");
 			
 			// Check if such a type exists in database
-			if (this.publications.keySet().contains(searchType)) {
-				pubsToSearch = this.publications.get(searchType);
-			}
+			if (this.publicationTypeMap.containsKey(searchType) &&
+				this.publications.keySet().contains(this.publicationTypeMap.get(searchType))) {
+				pubsToSearch = this.publications.get(this.publicationTypeMap.get(searchType));
+				
+			} else {
 			
-			// Case when no such type - early exit
-			return results;
+				// Case when no such type - early exit
+				return results;
+			}
 			
 		// Case when no type is provided - need looping through ALL publications
 		} else {
@@ -425,8 +435,9 @@ public class ControllerServlet extends HttpServlet {
 		}
 		
 		// Simple iteration over publications, adding those that match the criteria
+		System.out.println("Size of list: " + pubsToSearch.size());
 		for (Publication publication : pubsToSearch) {
-			if (matchBasicSearchCriteria(publication, searchCriteria)) {
+			if (matchSearchCriteria(publication, searchCriteria)) {
 				results.add(publication);
 			}
 		}
@@ -435,8 +446,8 @@ public class ControllerServlet extends HttpServlet {
 	}
 	
 	// Determines whether a publication matches the search criteria
-	private boolean matchBasicSearchCriteria(Publication publication, HashMap<String, String> searchCriteria) {
-		
+	private boolean matchSearchCriteria(Publication publication, HashMap<String, String> searchCriteria) {
+
 		// Examine title equality
 		if (searchCriteria.containsKey("searchTitle")) {
 			if (!publication.title.contains(searchCriteria.get("searchTitle"))) {
@@ -445,7 +456,9 @@ public class ControllerServlet extends HttpServlet {
 		}
 		
 		// Examine type equality
+		System.out.println("Checking type equality: ");
 		if (searchCriteria.containsKey("searchType")) {
+			System.out.println("Search type: " + searchCriteria.get("searchType"));
 			if (!publication.type.equals(searchCriteria.get("searchType"))) {
 				return false;
 			}

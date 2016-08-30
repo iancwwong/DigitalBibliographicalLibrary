@@ -1,0 +1,14 @@
+<div id="advancedSearch" class="container">
+	<hr/>
+	<h4>Advanced search</h4>
+				
+	<br/>
+	<br/>	
+	
+	<%-- Specific search options are presented here --%>
+	<div class="container">
+		<p id="advancedSearchOptions"></p>
+	</div>
+
+</div>
+                        

@@ -1,0 +1,22 @@
+// Opens ALL advanced search fields
+function openAdvancedSearchOptions() {
+	var advancedSearchOptions = document.getElementById("advancedSearchOptions");
+	// Prepare the form
+	advancedSearchOptions.innerHTML = '<form class="form-horizontal">';
+	
+	// Construct search fields
+	
+	// Add submit button
+	advancedSearchOptions.innerHTML += '<div class="form-group">'
+										+ '<div>'
+											+ '<input type="hidden" name="action" value="searchAdvancedFields"/>'
+											+ '<button type="submit" class="btn btn-primary">'
+											+ 'Search&nbsp;'
+											+ '<span class="glyphicon glyphicon-search" aria-hidden="true"></span>'
+											+ '</button>'
+										+ '</div>'
+									+	'</div>';
+	
+	// Close form
+	advancedSearchOptions.innerHTML += '</form>';
+}

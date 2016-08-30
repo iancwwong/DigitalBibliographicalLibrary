@@ -26,12 +26,13 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     
     <!-- Scripts -->
-    <script type="text/javascript" src="js/advancedsearch.js" ></script>
+    <script type="text/javascript" src="js/search.js" ></script>
     
     <!--  Page styling -->
     <link href="css/general.css" rel="stylesheet">
     <link href="css/navbar.css" rel="stylesheet">
     <link href="css/searchbar.css" rel="stylesheet">
+    <link href="css/search.css" rel="stylesheet">
     
 </head>
 <body>
@@ -43,26 +44,12 @@
 	
 		<h1>Welcome to the Digital Bibliographical Library!</h1>
 		<hr />
-				
-		<!-- Basic search -->
-		<h4>Basic search</h4>
-		<center>
-			<%@ include file="include/searchbar.jsp" %>
-		</center>
-		<br/>
-		<br/>
 		
-		<!-- Advanced search -->
-		<hr/>
-		<h4>Advanced search</h4>
-			<%@ include file="include/advancedsearch.jsp" %>		
-		<br/>
-		<br/>
-		
+		<!-- search features -->
+		<%@ include file="include/search.jsp"%>
 		
 		<!-- Random publications -->
-		<hr />
-		<p><strong>Some interesting articles</strong></p>
+		<p><h3>Some interesting articles</h3></p>
 		<br />
 		<table id="randPublicationsTable" class="table table-hover">
 			<col width="100px" />

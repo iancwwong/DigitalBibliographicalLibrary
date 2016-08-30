@@ -1,26 +1,11 @@
-// This function displays the appropriate search options,
-// depending on which type of publication is selected
-function openSearchOptions(publicationType) {
+// Opens ALL advanced search fields
+function openAdvancedSearchOptions() {
 	var advancedSearchOptions = document.getElementById("advancedSearchOptions");
 	
-	// Empty the fields if empty publication type selected
-	if (publicationType === "") {
-		advancedSearchOptions.innerHTML = "";
-		return;
-	}
-	
 	// Prepare the form
-	advancedSearchOptions.innerHTML += '<form class="form-horizontal">';
+	advancedSearchOptions.innerHTML = '<form class="form-horizontal">';
 	
-	// ADD PUBLICATION TYPE SPECIFIC SEARCH FIELDS
-	switch(publicationType) {
-		case "journal":
-			break;
-			
-		default:
-			break;
-	
-	}
+	// Construct search fields
 	
 	// Add submit button
 	advancedSearchOptions.innerHTML += '<div class="form-group">'

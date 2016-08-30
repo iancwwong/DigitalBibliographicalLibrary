@@ -1,0 +1,19 @@
+<div id="advancedSearch" class="container">
+
+	<%-- Offer different types of publications --%>
+	<form class="form-horizontal">
+		<div class="form-group">
+			<select class="form-control">
+				<option onclick="openBasicSearchOptions()">Basic</option>
+				<option onclick="openAdvancedSearchOptions()">Advanced</option>
+			</select>
+		</div>
+	</form>
+	<br/>
+	
+	<%-- Specific search options are presented here --%>
+	<div class="container">
+		<p id="searchContainer"></p>
+	</div>
+
+</div>               

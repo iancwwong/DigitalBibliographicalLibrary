@@ -1,0 +1,13 @@
+<!-- search features -->
+<ul class="tab">
+	<li><a href="#" class="tablinks" onclick="openTab(event, 'basicSearch')">Basic</a></li>
+	<li><a href="#" class="tablinks" onclick="openTab(event, 'advancedSearch')">Advanced</a></li>
+</ul>
+
+<div id="basicSearch" class="tabcontent">
+	<%@ include file="include/searchbar.jsp"%>
+</div>
+
+<div id="advancedSearch" class="tabcontent">
+	<%@ include file="include/advancedsearch.jsp"%>
+</div>
