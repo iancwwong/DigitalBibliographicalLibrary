@@ -575,50 +575,6 @@ public class ControllerServlet extends HttpServlet {
 			}
 		}		
 		
-		// Check number equality
-		if (searchCriteria.containsKey("searchNumber")) {
-			
-			// Check whether publication type is correct
-			String[] validPubTypes = {"journal", "conference (inproceedings)", "conference (proceedings)", "phd thesis"};
-			if (!Arrays.asList(validPubTypes).contains(publication.type)) {
-				return false;
-			}
-			
-			// Cast and check appropriately
-			switch (publication.type) {
-				case "journal":
-					PublicationArticle article = (PublicationArticle) publication;
-					if (!article.number.equals(searchCriteria.get("searchNumber"))) {
-						return false;
-					}
-					break;
-					
-				case "conference (inproceedings)":
-					PublicationInproceedings inproc = (PublicationInproceedings) publication;
-					if (!inproc.number.equals(searchCriteria.get("seachNumber"))) {
-						return false;
-					}
-					break;
-					
-				case "conference (proceedings)":
-					PublicationProceedings proc = (PublicationProceedings) publication;
-					if (!proc.number.equals(searchCriteria.get("searchNumber"))) {
-						return false;
-					}
-					break;
-					
-				case "phd thesis":
-					PublicationPHDThesis phd = (PublicationPHDThesis) publication;
-					if (!phd.number.equals(searchCriteria.get("searchNumber"))) {
-						return false;
-					}
-					break;
-					
-				default:
-					break;
-			}
-		}	
-		
 		// Reaching here means all criteria are matched
 		return true;
 	}

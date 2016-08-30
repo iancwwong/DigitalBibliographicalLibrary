@@ -380,3 +380,8 @@
 127.0.0.1 - - [30/Aug/2016:18:18:05 +1000] "GET / HTTP/1.1" 404 951
 0:0:0:0:0:0:0:1 - - [30/Aug/2016:18:18:09 +1000] "GET /DigitalBibliographicLibrary/ HTTP/1.1" 200 18497
 0:0:0:0:0:0:0:1 - - [30/Aug/2016:18:18:16 +1000] "GET /DigitalBibliographicLibrary/?searchTitle=&searchType=&searchAuthors=&searchEditors=&searchYear=&searchVenue=&searchVolume=29&searchNumber=&searchPages=&searchPublisher=&searchISBN=&searchSeries=&action=searchAdvancedFields HTTP/1.1" 200 12761
+127.0.0.1 - - [30/Aug/2016:18:22:02 +1000] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [30/Aug/2016:18:22:06 +1000] "GET /DigitalBibliographicLibrary/ HTTP/1.1" 200 17841
+0:0:0:0:0:0:0:1 - - [30/Aug/2016:18:22:06 +1000] "GET /DigitalBibliographicLibrary/js/search.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [30/Aug/2016:18:22:06 +1000] "GET /DigitalBibliographicLibrary/css/search.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [30/Aug/2016:18:22:25 +1000] "GET /DigitalBibliographicLibrary/?searchTitle=&searchType=&searchAuthors=&searchEditors=&searchYear=&searchVenue=&searchVolume=&searchNumber=4&searchPages=&searchPublisher=&searchISBN=&searchSeries=&action=searchAdvancedFields HTTP/1.1" 200 11942

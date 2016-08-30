@@ -602,14 +602,14 @@ public class ControllerServlet extends HttpServlet {
 					
 				case "conference (proceedings)":
 					PublicationProceedings proc = (PublicationProceedings) publication;
-					if (!proc.number.equals(searchCriteria.get("searchNumber"))) {
+					if (!proc.number.equals(searchCriteria.get("number"))) {
 						return false;
 					}
 					break;
 					
 				case "phd thesis":
 					PublicationPHDThesis phd = (PublicationPHDThesis) publication;
-					if (!phd.number.equals(searchCriteria.get("searchNumber"))) {
+					if (!phd.volume.equals(searchCriteria.get("searchVolume"))) {
 						return false;
 					}
 					break;

@@ -588,7 +588,7 @@ public class ControllerServlet extends HttpServlet {
 			switch (publication.type) {
 				case "journal":
 					PublicationArticle article = (PublicationArticle) publication;
-					if (!article.number.equals(searchCriteria.get("searchNumber"))) {
+					if (!article.volume.equals(searchCriteria.get("searchVolume"))) {
 						return false;
 					}
 					break;
@@ -602,14 +602,14 @@ public class ControllerServlet extends HttpServlet {
 					
 				case "conference (proceedings)":
 					PublicationProceedings proc = (PublicationProceedings) publication;
-					if (!proc.number.equals(searchCriteria.get("searchNumber"))) {
+					if (!proc.volume.equals(searchCriteria.get("searchVolume"))) {
 						return false;
 					}
 					break;
 					
 				case "phd thesis":
 					PublicationPHDThesis phd = (PublicationPHDThesis) publication;
-					if (!phd.number.equals(searchCriteria.get("searchNumber"))) {
+					if (!phd.volume.equals(searchCriteria.get("searchVolume"))) {
 						return false;
 					}
 					break;
