@@ -405,3 +405,5 @@
 0:0:0:0:0:0:0:1 - - [30/Aug/2016:19:10:22 +1000] "GET /DigitalBibliographicLibrary/?searchTitle=&searchType=&searchAuthors=&searchEditors=&searchYear=&searchVenue=&searchVolume=&searchNumber=&searchPages=&searchPublisher=&searchISBN=78-3-540-75208-0&searchSeries=&action=searchAdvancedFields HTTP/1.1" 200 2402
 0:0:0:0:0:0:0:1 - - [30/Aug/2016:19:10:32 +1000] "POST /DigitalBibliographicLibrary/control HTTP/1.1" 200 18330
 0:0:0:0:0:0:0:1 - - [30/Aug/2016:19:10:38 +1000] "GET /DigitalBibliographicLibrary/control?searchTitle=&searchType=&searchAuthors=&searchEditors=&searchYear=&searchVenue=&searchVolume=&searchNumber=&searchPages=&searchPublisher=&searchISBN=978-3-540-75208-0&searchSeries=&action=searchAdvancedFields HTTP/1.1" 200 4284
+127.0.0.1 - - [30/Aug/2016:19:13:26 +1000] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [30/Aug/2016:19:13:31 +1000] "GET /DigitalBibliographicLibrary/ HTTP/1.1" 200 18034
