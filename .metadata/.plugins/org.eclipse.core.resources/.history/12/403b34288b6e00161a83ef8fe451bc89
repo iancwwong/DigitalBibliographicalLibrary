@@ -595,7 +595,7 @@ public class ControllerServlet extends HttpServlet {
 					
 				case "conference (inproceedings)":
 					PublicationInproceedings inproc = (PublicationInproceedings) publication;
-					if (!inproc.number.equals(searchCriteria.get("searchNumber"))) {
+					if (!inproc.number.equals(searchCriteria.get("seachNumber"))) {
 						return false;
 					}
 					break;
@@ -618,57 +618,6 @@ public class ControllerServlet extends HttpServlet {
 					break;
 			}
 		}	
-		
-		// Check pages equality
-		if (searchCriteria.containsKey("searchPages")) {
-			
-			// Check whether publication type is correct
-			String[] validPubTypes = {"journal", "conference (inproceedings)", "book", "incollection", "phd thesis"};
-			if (!Arrays.asList(validPubTypes).contains(publication.type)) {
-				return false;
-			}
-			
-			// Cast and check appropriately
-			switch (publication.type) {
-				case "journal":
-					PublicationArticle article = (PublicationArticle) publication;
-					if (!article.pages.equals(searchCriteria.get("searchPages"))) {
-						return false;
-					}
-					break;
-					
-				case "conference (inproceedings)":
-					PublicationInproceedings inproc = (PublicationInproceedings) publication;
-					if (!inproc.pages.equals(searchCriteria.get("searchPages"))) {
-						return false;
-					}
-					break;
-					
-				case "book":
-					PublicationBook book = (PublicationBook) publication;
-					if (!book.pages.equals(searchCriteria.get("searchPages"))) {
-						return false;
-					}
-					break;
-					
-				case "incollection":
-					PublicationIncollection incoll = (PublicationIncollection) publication;
-					if (!incoll.pages.equals(searchCriteria.get("searchPages"))) {
-						return false;
-					}
-					break;
-					
-				case "phd thesis":
-					PublicationPHDThesis phd = (PublicationPHDThesis) publication;
-					if (!phd.pages.equals(searchCriteria.get("searchPages"))) {
-						return false;
-					}
-					break;
-					
-				default:
-					break;
-			}
-		}
 		
 		// Reaching here means all criteria are matched
 		return true;

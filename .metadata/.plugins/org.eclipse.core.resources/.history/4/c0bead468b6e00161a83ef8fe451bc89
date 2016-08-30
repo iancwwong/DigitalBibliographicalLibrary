@@ -645,22 +645,15 @@ public class ControllerServlet extends HttpServlet {
 					break;
 					
 				case "book":
-					PublicationBook book = (PublicationBook) publication;
-					if (!book.pages.equals(searchCriteria.get("searchPages"))) {
-						return false;
-					}
-					break;
-					
-				case "incollection":
-					PublicationIncollection incoll = (PublicationIncollection) publication;
-					if (!incoll.pages.equals(searchCriteria.get("searchPages"))) {
+					PublicationProceedings proc = (PublicationProceedings) publication;
+					if (!proc.number.equals(searchCriteria.get("searchNumber"))) {
 						return false;
 					}
 					break;
 					
 				case "phd thesis":
 					PublicationPHDThesis phd = (PublicationPHDThesis) publication;
-					if (!phd.pages.equals(searchCriteria.get("searchPages"))) {
+					if (!phd.number.equals(searchCriteria.get("searchNumber"))) {
 						return false;
 					}
 					break;
