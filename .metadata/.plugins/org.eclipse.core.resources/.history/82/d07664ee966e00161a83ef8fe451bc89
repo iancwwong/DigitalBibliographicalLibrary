@@ -39,6 +39,7 @@
 		<!-- Page Content -->
 		<h1>Search Results</h1>
 		<hr/>
+		<br />
 		
 		<!-- Provide search function -->
 		<%@ include file="include/search.jsp"%>
@@ -128,7 +129,9 @@
 						</button>					
 					</c:otherwise>
 				</c:choose>
-								
+				
+				&nbsp;${searchPageBean.currPage}&nbsp;
+				
 				<%-- Next page link --%>
 				<c:choose>
 					<c:when test="${searchPageBean.currPage != searchPageBean.totalPages}">

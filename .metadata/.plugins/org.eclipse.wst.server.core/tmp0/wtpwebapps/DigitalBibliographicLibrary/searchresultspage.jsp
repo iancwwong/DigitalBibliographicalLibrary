@@ -21,9 +21,14 @@
 	<!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     
+    <!-- Scripts -->
+    <script type="text/javascript" src="js/search.js" ></script>
+    
     <!--  Page styling -->
     <link href="css/general.css" rel="stylesheet">
     <link href="css/navbar.css" rel="stylesheet">
+    <link href="css/searchbar.css" rel="stylesheet">
+    <link href="css/search.css" rel="stylesheet">
 
 </head>
 <body>
@@ -34,9 +39,13 @@
 		<!-- Page Content -->
 		<h1>Search Results</h1>
 		<hr/>
-		<br />
+		
+		<!-- Provide search function -->
+		<%@ include file="include/search.jsp"%>
+		<br/>
 		
 		<!--  Check whether there are results -->
+		<hr/>
 		<c:choose>
 			<c:when test="${empty searchPageBean.results}">
 				<center>No results found!</center>
@@ -119,7 +128,7 @@
 						</button>					
 					</c:otherwise>
 				</c:choose>
-				
+								
 				<%-- Next page link --%>
 				<c:choose>
 					<c:when test="${searchPageBean.currPage != searchPageBean.totalPages}">

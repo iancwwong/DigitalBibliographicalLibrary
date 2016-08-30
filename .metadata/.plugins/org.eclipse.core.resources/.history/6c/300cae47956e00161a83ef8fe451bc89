@@ -266,25 +266,25 @@ public class ControllerServlet extends HttpServlet {
 		}
 		
 		// Advanced search criteria
-		if (request.getParameter("searchEditors") != null && !request.getParameter("searchEditors").equals("")) {
+		if (!request.getParameter("searchEditors").equals("")) {
 			searchCriteria.put("searchEditors", request.getParameter("searchEditors"));
 		}
-		if (request.getParameter("searchVolume") != null && !request.getParameter("searchVolume").equals("")) {
+		if (!request.getParameter("searchVolume").equals("")) {
 			searchCriteria.put("searchVolume", request.getParameter("searchVolume"));
 		}		
-		if (request.getParameter("searchNumber") != null && !request.getParameter("searchNumber").equals("")) {
+		if (!request.getParameter("searchNumber").equals("")) {
 			searchCriteria.put("searchNumber", request.getParameter("searchNumber"));
 		}
-		if (request.getParameter("searchPages") != null && !request.getParameter("searchPages").equals("")) {
+		if (!request.getParameter("searchPages").equals("")) {
 			searchCriteria.put("searchPages", request.getParameter("searchPages"));
 		}
-		if (request.getParameter("searchPublisher") != null && !request.getParameter("searchPublisher").equals("")) {
+		if (!request.getParameter("searchPublisher").equals("")) {
 			searchCriteria.put("searchPublisher", request.getParameter("searchVenue"));
 		}
-		if (request.getParameter("searchISBN") != null && !request.getParameter("searchISBN").equals("")) {
+		if (!request.getParameter("searchISBN").equals("")) {
 			searchCriteria.put("searchISBN", request.getParameter("searchISBN"));
 		}
-		if (request.getParameter("searchSeries") != null && !request.getParameter("searchSeries").equals("")) {
+		if (!request.getParameter("searchSeries").equals("")) {
 			searchCriteria.put("searchSeries", request.getParameter("searchSeries"));
 		}
 		

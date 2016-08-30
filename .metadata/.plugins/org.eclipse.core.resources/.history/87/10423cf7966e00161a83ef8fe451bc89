@@ -39,6 +39,7 @@
 		<!-- Page Content -->
 		<h1>Search Results</h1>
 		<hr/>
+		<br />
 		
 		<!-- Provide search function -->
 		<%@ include file="include/search.jsp"%>
