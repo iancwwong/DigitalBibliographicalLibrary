@@ -1,0 +1,16 @@
+// This function displays the appropriate search options,
+// depending on which type of publication is selected
+function openSearchOptions(publicationType) {
+	var advancedSearchOptions = document.getElementById("advancedSearchOptions");
+	advancedSearchOptions.innerHTML = '<strong>Selecting ' + publicationType + '</strong>';
+	advancedSearchOptions.innerHTML += '<br/>';
+	advancedSearchOptions.innerHTML += '<form class="form-horizontal">'
+										+ '<div class="form-group">'
+										+ '	<label class="control-label col-sm-2" for="email">Email:</label>'
+										+ '	<div class="col-sm-10">'
+										+ '		<input type="email" class="form-control" id="email">'
+										+ '	</div>'
+										+ '</div>'
+										+ '</form>';
+		
+}

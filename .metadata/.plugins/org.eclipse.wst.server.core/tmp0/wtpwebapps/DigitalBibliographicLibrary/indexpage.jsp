@@ -25,6 +25,9 @@
 	<!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     
+    <!-- Scripts -->
+    <script type="text/javascript" src="js/advancedsearch.js" ></script>
+    
     <!--  Page styling -->
     <link href="css/general.css" rel="stylesheet">
     <link href="css/navbar.css" rel="stylesheet">
@@ -52,7 +55,7 @@
 		<!-- Advanced search -->
 		<hr/>
 		<h4>Advanced search</h4>
-			<%@ include file="include/advancedsearchform.jsp" %>		
+			<%@ include file="include/advancedsearch.jsp" %>		
 		<br/>
 		<br/>
 		

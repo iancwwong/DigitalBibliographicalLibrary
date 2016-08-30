@@ -1,0 +1,21 @@
+<div id="advancedSearch" class="container">
+
+	<%-- Offer different types of publications --%>
+	<div class="form-group" style="display: inline">
+		<label for="typeSelect">Type:</label>
+		<select class="form-control" id="typeSelect">
+			<option onclick="openSearchOptions('journal')">Journal</option>
+			<option onclick="openSearchOptions('conference (inproceedings)')">Conference (Inproceedings)</option>
+			<option onclick="openSearchOptions('concerence (proceedings)')">Conference (Proceedings)</option>
+		</select>
+	</div>
+	<br/>
+	
+	<div class="container">
+		<p id="advancedSearchOptions"></p>
+	</div>
+	
+
+
+</div>
+                        

@@ -1,0 +1,6 @@
+// This function displays the appropriate search options,
+// depending on which type of publication is selected
+function openSearchOptions(publicationType) {
+	var advancedSearchOptions = document.getElementById("advancedSearchOptions");
+	advancedSearchOptions.innerHTML(publicationType);
+}

@@ -1,0 +1,21 @@
+<div id="advancedSearch" class="container">
+
+	<%-- Offer different types of publications --%>
+	<div class="dropdown">
+		<label class="control-label col-sm-2">Type:</label>
+		<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="width:100px">
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+			<li><a href="#" onclick="openSearchOptions('journal')">Journal</a></li>
+			<li><a href="#" onclick="openSearchOptions('conference (inproceedings)')">Conference (Inproceedings)</a></li>
+			<li><a href="#" onclick="openSearchOptions('concerence (proceedings)')">Conference (Proceedings)</a></li>
+		</ul>
+	</div>
+	
+	<div id="advancedSearchOptions" class="container" >
+		
+	</div>
+
+</div>
+                        
