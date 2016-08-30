@@ -7,3 +7,4 @@
 * Add a 'select all' button when selecting publications to remove in cart
 * Allow users to change different number of view items on search page
 * Make table in index and search results FIXED length
+* Fix up "publisher" search

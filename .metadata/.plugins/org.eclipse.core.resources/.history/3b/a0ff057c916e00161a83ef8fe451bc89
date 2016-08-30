@@ -727,7 +727,7 @@ public class ControllerServlet extends HttpServlet {
 					
 				case "phd thesis":
 					PublicationPHDThesis phd = (PublicationPHDThesis) publication;
-					if (!phd.isbn.equals(searchCriteria.get("searchISBN"))) {
+					if (!book.isbn.equals(searchCriteria.get("searchISBN"))) {
 						return false;
 					}
 					break;

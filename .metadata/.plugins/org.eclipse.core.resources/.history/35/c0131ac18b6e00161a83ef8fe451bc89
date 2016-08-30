@@ -674,60 +674,44 @@ public class ControllerServlet extends HttpServlet {
 		if (searchCriteria.containsKey("searchPublisher")) {
 			
 			// Check whether publication type is correct
-			String[] validPubTypes = {"conference (proceedings)", "book"};
+			String[] validPubTypes = {"conference (proceedings)", "book", "incollection", "phd thesis"};
 			if (!Arrays.asList(validPubTypes).contains(publication.type)) {
 				return false;
 			}
 			
 			// Cast and check appropriately
 			switch (publication.type) {
-				case "conference (proceedings)":
-					PublicationProceedings proc = (PublicationProceedings) publication;
-					if (!proc.publisher.equals(searchCriteria.get("searchPublisher"))) {
+				case "journal":
+					PublicationArticle article = (PublicationArticle) publication;
+					if (!article.pages.equals(searchCriteria.get("searchPages"))) {
+						return false;
+					}
+					break;
+					
+				case "conference (inproceedings)":
+					PublicationInproceedings inproc = (PublicationInproceedings) publication;
+					if (!inproc.pages.equals(searchCriteria.get("searchPages"))) {
 						return false;
 					}
 					break;
 					
 				case "book":
 					PublicationBook book = (PublicationBook) publication;
-					if (!book.publisher.equals(searchCriteria.get("searchPublisher"))) {
+					if (!book.pages.equals(searchCriteria.get("searchPages"))) {
 						return false;
 					}
 					break;
 					
-				default:
-					break;
-			}
-		}
-		
-		// Check ISBN equality
-		if (searchCriteria.containsKey("searchISBN")) {
-			
-			// Check whether publication type is correct
-			String[] validPubTypes = {"conference (proceedings)", "book", "phd thesis"};
-			if (!Arrays.asList(validPubTypes).contains(publication.type)) {
-				return false;
-			}
-			
-			// Cast and check appropriately
-			switch (publication.type) {
-				case "conference (proceedings)":
-					PublicationProceedings proc = (PublicationProceedings) publication;
-					if (!proc.isbn.equals(searchCriteria.get("searchISBN"))) {
-						return false;
-					}
-					break;
-					
-				case "book":
-					PublicationBook book = (PublicationBook) publication;
-					if (!book.isbn.equals(searchCriteria.get("searchISBN"))) {
+				case "incollection":
+					PublicationIncollection incoll = (PublicationIncollection) publication;
+					if (!incoll.pages.equals(searchCriteria.get("searchPages"))) {
 						return false;
 					}
 					break;
 					
 				case "phd thesis":
 					PublicationPHDThesis phd = (PublicationPHDThesis) publication;
-					if (!phd.isbn.equals(searchCriteria.get("searchISBN"))) {
+					if (!phd.pages.equals(searchCriteria.get("searchPages"))) {
 						return false;
 					}
 					break;

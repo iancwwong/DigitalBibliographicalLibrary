@@ -713,21 +713,14 @@ public class ControllerServlet extends HttpServlet {
 			switch (publication.type) {
 				case "conference (proceedings)":
 					PublicationProceedings proc = (PublicationProceedings) publication;
-					if (!proc.isbn.equals(searchCriteria.get("searchISBN"))) {
+					if (!proc.publisher.equals(searchCriteria.get("searchPublisher"))) {
 						return false;
 					}
 					break;
 					
 				case "book":
 					PublicationBook book = (PublicationBook) publication;
-					if (!book.isbn.equals(searchCriteria.get("searchISBN"))) {
-						return false;
-					}
-					break;
-					
-				case "phd thesis":
-					PublicationPHDThesis phd = (PublicationPHDThesis) publication;
-					if (!phd.isbn.equals(searchCriteria.get("searchISBN"))) {
+					if (!book.publisher.equals(searchCriteria.get("searchPublisher"))) {
 						return false;
 					}
 					break;
