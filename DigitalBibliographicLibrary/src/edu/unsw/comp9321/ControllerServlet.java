@@ -147,9 +147,9 @@ public class ControllerServlet extends HttpServlet {
 					System.out.println("* publisher: " + request.getParameter("searchPublisher"));
 					System.out.println("* ISBN: " + request.getParameter("searchISBN"));
 					System.out.println("* series: " + request.getParameter("searchSeries"));
-					//prepareSearchPage(request);
-					//redir_page = "searchresultspage.jsp";
-					//redir_changed = true;
+					prepareSearchPage(request);
+					redir_page = "searchresultspage.jsp";
+					redir_changed = true;
 					break;
 					
 				// User wants to navigate in the search results
@@ -247,6 +247,8 @@ public class ControllerServlet extends HttpServlet {
 		
 		// Construct search criteria, based on what non-empty fields
 		HashMap<String, String> searchCriteria = new HashMap<String, String>();
+		
+		// Basic search criteria
 		if (!request.getParameter("searchTitle").equals("")) {
 			searchCriteria.put("searchTitle", request.getParameter("searchTitle"));
 		}
@@ -261,6 +263,29 @@ public class ControllerServlet extends HttpServlet {
 		}
 		if (!request.getParameter("searchVenue").equals("")) {
 			searchCriteria.put("searchVenue", request.getParameter("searchVenue"));
+		}
+		
+		// Advanced search criteria
+		if (!request.getParameter("searchEditors").equals("")) {
+			searchCriteria.put("searchEditors", request.getParameter("searchEditors"));
+		}
+		if (!request.getParameter("searchVolume").equals("")) {
+			searchCriteria.put("searchVolume", request.getParameter("searchVolume"));
+		}		
+		if (!request.getParameter("searchNumber").equals("")) {
+			searchCriteria.put("searchNumber", request.getParameter("searchNumber"));
+		}
+		if (!request.getParameter("searchPages").equals("")) {
+			searchCriteria.put("searchPages", request.getParameter("searchPages"));
+		}
+		if (!request.getParameter("searchPublisher").equals("")) {
+			searchCriteria.put("searchPublisher", request.getParameter("searchVenue"));
+		}
+		if (!request.getParameter("searchISBN").equals("")) {
+			searchCriteria.put("searchISBN", request.getParameter("searchISBN"));
+		}
+		if (!request.getParameter("searchSeries").equals("")) {
+			searchCriteria.put("searchSeries", request.getParameter("searchSeries"));
 		}
 		
 		// Find the matching publications
@@ -435,7 +460,6 @@ public class ControllerServlet extends HttpServlet {
 		}
 		
 		// Simple iteration over publications, adding those that match the criteria
-		System.out.println("Size of list: " + pubsToSearch.size());
 		for (Publication publication : pubsToSearch) {
 			if (matchSearchCriteria(publication, searchCriteria)) {
 				results.add(publication);
@@ -447,7 +471,8 @@ public class ControllerServlet extends HttpServlet {
 	
 	// Determines whether a publication matches the search criteria
 	private boolean matchSearchCriteria(Publication publication, HashMap<String, String> searchCriteria) {
-
+		
+		// BASIC SEARCH FIELDS
 		// Examine title equality
 		if (searchCriteria.containsKey("searchTitle")) {
 			if (!publication.title.contains(searchCriteria.get("searchTitle"))) {
@@ -456,7 +481,6 @@ public class ControllerServlet extends HttpServlet {
 		}
 		
 		// Examine type equality
-		System.out.println("Checking type equality: ");
 		if (searchCriteria.containsKey("searchType")) {
 			System.out.println("Search type: " + searchCriteria.get("searchType"));
 			if (!publication.type.equals(searchCriteria.get("searchType"))) {
@@ -491,6 +515,67 @@ public class ControllerServlet extends HttpServlet {
 				return false;
 			}
 		}
+		
+		// ADVANCED SEARCH FIELDS
+		// Check editors equality
+		if (searchCriteria.containsKey("searchEditors")) {
+			List<String> searchEditors = new ArrayList<String>();
+			String[] authors = searchCriteria.get("searchEditors").split("; ");
+			for (String author : authors) {
+				searchEditors.add(author);
+			}
+			for (String editor : searchEditors) {
+				if (!publication.authors.contains(editor)) {
+					return false;
+				}
+			}
+		}
+		
+		// Check volume equality
+		if (searchCriteria.containsKey("searchVolume")) {
+			
+			// Check whether publication type is correct
+			String[] validPubTypes = {"journal", "book", "conference (proceedings)", "phd thesis"};
+			if (!Arrays.asList(validPubTypes).contains(publication.type)) {
+				return false;
+			}
+			
+			// Cast and check appropriately
+			switch (publication.type) {
+				case "journal":
+					PublicationArticle article = (PublicationArticle) publication;
+					if (!article.volume.equals(searchCriteria.get("searchVolume"))) {
+						return false;
+					}
+					break;
+					
+				case "book":
+					PublicationBook book = (PublicationBook) publication;
+					if (!book.volume.equals(searchCriteria.get("searchVolume"))) {
+						return false;
+					}
+					break;
+					
+				case "conference (proceedings)":
+					PublicationProceedings proc = (PublicationProceedings) publication;
+					if (!proc.volume.equals(searchCriteria.get("searchVolume"))) {
+						return false;
+					}
+					break;
+					
+				case "phd thesis":
+					PublicationPHDThesis phd = (PublicationPHDThesis) publication;
+					if (!phd.volume.equals(searchCriteria.get("searchVolume"))) {
+						return false;
+					}
+					break;
+					
+				default:
+					break;
+			}
+			System.out.println("Found volume match!");
+			publication.showDetails();
+		}		
 		
 		// Reaching here means all criteria are matched
 		return true;

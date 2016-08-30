@@ -1,10 +1,18 @@
 <div class="container" style="width:700px">
   <form class="form-horizontal">
+  
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="title">Title:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="title" name="searchTitle">
+      </div>
+    </div>
 
     <div class="form-group">
       <label class="control-label col-sm-2" for="type">Type:</label>
       <div class="col-sm-10">
         <select class="selectpicker form-control" id="type" name="searchType">
+        	<option selected value=""></option>
             <option>journal</option>
             <option>conference (inproceedings)</option>
             <option>conference (proceedings)</option>
