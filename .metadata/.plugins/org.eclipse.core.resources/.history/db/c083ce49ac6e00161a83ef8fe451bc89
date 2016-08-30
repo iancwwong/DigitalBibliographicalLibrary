@@ -6,7 +6,7 @@
       <div class="container">
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li>
+            <li class="active">
 				<form action='control' method='POST'>
 					<input type='hidden' name="action" value="viewIndexPage"/>
 					<button type="submit" class="btn btn-link">

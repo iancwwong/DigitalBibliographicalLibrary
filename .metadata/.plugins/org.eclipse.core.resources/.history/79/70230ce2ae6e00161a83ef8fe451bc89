@@ -42,7 +42,11 @@
 		<h1>Search Results</h1>
 		<hr/>
 		
+		<!-- Provide search function -->
+		<%@ include file="include/search.jsp"%>
+		
 		<!--  Check whether there are results -->
+		<hr/>
 		<c:choose>
 			<c:when test="${empty searchPageBean.results}">
 				<center>No results found!</center>
