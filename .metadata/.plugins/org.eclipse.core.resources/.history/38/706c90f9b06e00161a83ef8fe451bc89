@@ -75,36 +75,11 @@
 									    		<td style="word-wrap: break-word">${publicationPageBean.publication.title}</td>
 									    	</tr>
 
-							    			<c:if test="${not empty publicationPageBean.publication.series}">
-								    			<tr>
-										    		<td><strong>Series:</strong></td>
-										    		<td style="word-wrap: break-word">${publicationPageBean.publication.series}</td>
-										    	</tr>
-									    	</c:if>
-
-									    	<c:if test="${not empty publicationPageBean.publication.year}">
-										    	<tr>
-										    		<td><strong>Year:</strong></td>
-										    		<td style="word-wrap: break-word">${publicationPageBean.publication.year}</td>
-										    	</tr>
-									    	</c:if>
-									    	
-									    	<c:if test="${not empty publicationPageBean.publication.isbn}">
-										    	<tr>
-										    		<td><strong>ISBN:</strong></td>
-										    		<td style="word-wrap: break-word">${publicationPageBean.publication.isbn}</td>
-										    	</tr>
-									    	</c:if>
-
 									    	<tr>
 									    		<td><strong>Authors:</strong></td>
 									    		<c:choose>
 										    		<c:when test="${not empty publicationPageBean.publication.formattedAuthors}">
-										    			<td style="word-wrap: break-word">
-										    				<c:forEach var="author" items="${publicationPageBean.publication.authors}">
-										    					<p>${author}</p>
-										    				</c:forEach>
-										    			</td>
+										    			<td style="word-wrap: break-word">${publicationPageBean.publication.formattedAuthors}</td>
 										    		</c:when>
 										    		<c:otherwise>
 										    			<td><i>Anonymous</i></td>
@@ -112,55 +87,31 @@
 									    		</c:choose>
 									    	</tr>
 									    	
-									    	<c:if test="${not empty publicationPageBean.publication.formattedEditors}">
-										    	<tr>
-										    		<td><strong>Editors:</strong></td>
-									    			<td style="word-wrap: break-word">
-									    				<c:forEach var="editor" items="${publicationPageBean.publication.editors}">
-									    					<p>${editor}</p>
-									    				</c:forEach>
-									    			</td>
-										    	</tr>
-									    	</c:if>
+									    	<tr>
+									    		<td><strong>Editors:</strong></td>
+									    		<c:choose>
+										    		<c:when test="${not empty publicationPageBean.publication.formattedEditors}">
+										    			<td style="word-wrap: break-word">${publicationPageBean.publication.formattedEditors}</td>
+										    		</c:when>
+										    		<c:otherwise>
+										    			<td><i>None</i></td>
+										    		</c:otherwise>
+									    		</c:choose>
+									    	</tr>
 									    	
-									    	<c:if test="${not empty publicationPageBean.publication.venue}">
-										    	<tr>
-										    		<td><strong>Venue:</strong></td>
-										    		<td style="word-wrap: break-word">${publicationPageBean.publication.venue}</td>
-										    	</tr>
-									    	</c:if>
-
-							    			<c:if test="${not empty publicationPageBean.publication.volume}">
-										    	<tr>
-										    		<td><strong>Volume:</strong></td>
-										    		<td style="word-wrap: break-word">${publicationPageBean.publication.volume}</td>
-										    	</tr>
-									    	</c:if>
-									    
-							    			<c:if test="${not empty publicationPageBean.publication.number}">
-										    	<tr>
-										    		<td><strong>Number:</strong></td>
-										    		<td style="word-wrap: break-word">${publicationPageBean.publication.number}</td>
-										    	</tr>
-									    	</c:if>
-									    	
-									    	<c:if test="${not empty publicationPageBean.publication.pages}">
-										    	<tr>
-										    		<td><strong>Pages:</strong></td>
-										    		<td style="word-wrap: break-word">${publicationPageBean.publication.pages}</td>
-										    	</tr>
-									    	</c:if>
-									    	
-									    	<c:if test="${not empty publicationPageBean.publication.cites}">
-										    	<tr>
-										    		<td><strong>Cites:</strong></td>
-										    		<td style="word-wrap: break-word">
-										    			<c:forEach var="cite" items="${publicationPageBean.publication.cites}">
-										    				<p>${cite}</p>
-										    			</c:forEach>
-										    		</td>
-										    	</tr>
-									    	</c:if>
+									    	<tr>
+									    		<td><strong>Year:</strong></td>
+									    		<c:choose>
+									    			<c:when test="${publicationPageBean.publication.year}">
+									    				<td style="word-wrap: break-word">${publicationPageBean.publication.year}</td>
+									    			</c:when>
+									    			<c:otherwise>
+									    			
+									    			</c:otherwise>
+									    		</c:choose>
+									    		
+									    		
+									    	</tr>
 									    										    	
 									    </table>
 									    

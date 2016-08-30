@@ -32,7 +32,7 @@ public class PublicationBean {
 	public String volume = "";
 	public String publisher = "";
 	public String isbn = "";
-	public String series = "";
+	public String series;
 	
 	// == OTHER ATTRIBUTES THAT FACILITATE PRESENTATION
 	public String formattedAuthors = "";

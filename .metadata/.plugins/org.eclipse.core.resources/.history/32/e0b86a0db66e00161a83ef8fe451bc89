@@ -100,11 +100,7 @@
 									    		<td><strong>Authors:</strong></td>
 									    		<c:choose>
 										    		<c:when test="${not empty publicationPageBean.publication.formattedAuthors}">
-										    			<td style="word-wrap: break-word">
-										    				<c:forEach var="author" items="${publicationPageBean.publication.authors}">
-										    					<p>${author}</p>
-										    				</c:forEach>
-										    			</td>
+										    			<td style="word-wrap: break-word">${publicationPageBean.publication.formattedAuthors}</td>
 										    		</c:when>
 										    		<c:otherwise>
 										    			<td><i>Anonymous</i></td>
@@ -115,11 +111,7 @@
 									    	<c:if test="${not empty publicationPageBean.publication.formattedEditors}">
 										    	<tr>
 										    		<td><strong>Editors:</strong></td>
-									    			<td style="word-wrap: break-word">
-									    				<c:forEach var="editor" items="${publicationPageBean.publication.editors}">
-									    					<p>${editor}</p>
-									    				</c:forEach>
-									    			</td>
+										    		<td style="word-wrap: break-word">${publicationPageBean.publication.formattedEditors}</td>									    	
 										    	</tr>
 									    	</c:if>
 									    	

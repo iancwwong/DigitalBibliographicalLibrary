@@ -101,7 +101,7 @@
 									    		<c:choose>
 										    		<c:when test="${not empty publicationPageBean.publication.formattedAuthors}">
 										    			<td style="word-wrap: break-word">
-										    				<c:forEach var="author" items="${publicationPageBean.publication.authors}">
+										    				<c:forEach var="author" items="publicationPageBean.publication.authors">
 										    					<p>${author}</p>
 										    				</c:forEach>
 										    			</td>
@@ -116,7 +116,7 @@
 										    	<tr>
 										    		<td><strong>Editors:</strong></td>
 									    			<td style="word-wrap: break-word">
-									    				<c:forEach var="editor" items="${publicationPageBean.publication.editors}">
+									    				<c:forEach var="editor" items="publicationPageBean.publication.editors">
 									    					<p>${editor}</p>
 									    				</c:forEach>
 									    			</td>
