@@ -7,7 +7,6 @@
 package edu.unsw.comp9321;
 
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.util.*;
 
 import javax.servlet.RequestDispatcher;
@@ -251,42 +250,42 @@ public class ControllerServlet extends HttpServlet {
 		
 		// Basic search criteria
 		if (!request.getParameter("searchTitle").equals("")) {
-			searchCriteria.put("searchTitle", new String(request.getParameter("searchTitle").getBytes(), Charset.forName("UTF-8")));
+			searchCriteria.put("searchTitle", new String(request.getParameter("searchTitle"), "UTF-8");
 		}
 		if (!request.getParameter("searchAuthors").equals("")) {
-			searchCriteria.put("searchAuthors", new String(request.getParameter("searchAuthors").getBytes(), Charset.forName("UTF-8")));
+			searchCriteria.put("searchAuthors", request.getParameter("searchAuthors"));
 		}
 		if (!request.getParameter("searchType").equals("")) {
-			searchCriteria.put("searchType", new String(request.getParameter("searchType").getBytes(), Charset.forName("UTF-8")));
+			searchCriteria.put("searchType", request.getParameter("searchType"));
 		}
 		if (!request.getParameter("searchYear").equals("")) {
-			searchCriteria.put("searchYear", new String(request.getParameter("searchYear").getBytes(), Charset.forName("UTF-8")));
+			searchCriteria.put("searchYear", request.getParameter("searchYear"));
 		}
 		if (!request.getParameter("searchVenue").equals("")) {
-			searchCriteria.put("searchVenue", new String(request.getParameter("searchVenue").getBytes(), Charset.forName("UTF-8")));
+			searchCriteria.put("searchVenue", request.getParameter("searchVenue"));
 		}
 		
 		// Advanced search criteria
 		if (request.getParameter("searchEditors") != null && !request.getParameter("searchEditors").equals("")) {
-			searchCriteria.put("searchEditors", new String(request.getParameter("searchEditors").getBytes(), Charset.forName("UTF-8")));
+			searchCriteria.put("searchEditors", request.getParameter("searchEditors"));
 		}
 		if (request.getParameter("searchVolume") != null && !request.getParameter("searchVolume").equals("")) {
-			searchCriteria.put("searchVolume", new String(request.getParameter("searchVolume").getBytes(), Charset.forName("UTF-8")));
+			searchCriteria.put("searchVolume", request.getParameter("searchVolume"));
 		}		
 		if (request.getParameter("searchNumber") != null && !request.getParameter("searchNumber").equals("")) {
-			searchCriteria.put("searchNumber", new String(request.getParameter("searchNumber").getBytes(), Charset.forName("UTF-8")));
+			searchCriteria.put("searchNumber", request.getParameter("searchNumber"));
 		}
 		if (request.getParameter("searchPages") != null && !request.getParameter("searchPages").equals("")) {
-			searchCriteria.put("searchPages", new String(request.getParameter("searchPages").getBytes(), Charset.forName("UTF-8")));
+			searchCriteria.put("searchPages", request.getParameter("searchPages"));
 		}
 		if (request.getParameter("searchPublisher") != null && !request.getParameter("searchPublisher").equals("")) {
-			searchCriteria.put("searchPublisher", new String(request.getParameter("searchPublisher").getBytes(), Charset.forName("UTF-8")));
+			searchCriteria.put("searchPublisher", request.getParameter("searchVenue"));
 		}
 		if (request.getParameter("searchISBN") != null && !request.getParameter("searchISBN").equals("")) {
-			searchCriteria.put("searchISBN", new String(request.getParameter("searchISBN").getBytes(), Charset.forName("UTF-8")));
+			searchCriteria.put("searchISBN", request.getParameter("searchISBN"));
 		}
 		if (request.getParameter("searchSeries") != null && !request.getParameter("searchSeries").equals("")) {
-			searchCriteria.put("searchSeries", new String(request.getParameter("searchSeries").getBytes(), Charset.forName("UTF-8")));
+			searchCriteria.put("searchSeries", request.getParameter("searchSeries"));
 		}
 		
 		// Find the matching publications
