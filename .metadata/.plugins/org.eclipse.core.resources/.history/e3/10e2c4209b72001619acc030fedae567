@@ -33,10 +33,6 @@
 		<p>
 			This web application is designed for an assignment in the COMP9321 course at UNSW.
 		</p>
-		<p>
-			By: Ian Wong (z3463696)
-		</p>
-		
 		
 		<!-- Footer -->
 		<%@ include file="include/footer.jsp"%>
