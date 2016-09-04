@@ -105,11 +105,11 @@ public class SaxPublicationsHandler extends DefaultHandler {
 				
 			// Non publication types
 			case "author":
-				this.currAuthor = new String();
+				this.currAuthor = "";
 				break;
 			
 			case "editor":
-				this.currEditor = new String();
+				this.currEditor = "";
 				break;
 				
 			// unknown publication type
@@ -145,13 +145,13 @@ public class SaxPublicationsHandler extends DefaultHandler {
 				// Add current author
 				case "author":
 					this.currPublication.authors.add(this.currAuthor);
-					this.currAuthor = new String();
+					this.currAuthor = "";
 					break;
 					
 				// Add current editor
 				case "editor":
 					this.currPublication.editors.add(this.currEditor);
-					this.currEditor = new String();
+					this.currEditor = "";
 					break;
 					
 				default: 
