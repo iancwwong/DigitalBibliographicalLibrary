@@ -1,9 +1,0 @@
-/*
- * This class represents a user's cart
- */
-package edu.unsw.comp9321;
-import java.util.*
-
-public class Cart {
-	public List<PublicationBean> publications = new ArrayList<PublicationBean>();
-}

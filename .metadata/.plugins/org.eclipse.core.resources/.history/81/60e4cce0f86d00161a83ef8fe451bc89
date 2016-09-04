@@ -1,5 +1,0 @@
-                        <input type='hidden' name="action" value="searchAdvancedFields"/>
-                        <button type="submit" class="btn btn-primary">
-                        	<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                        </button>
-                        

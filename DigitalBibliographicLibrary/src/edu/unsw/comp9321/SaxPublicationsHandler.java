@@ -22,6 +22,8 @@ public class SaxPublicationsHandler extends DefaultHandler {
 
 	// Keep track of current publication being parsed
 	public Publication currPublication = null;
+	public String currAuthor = "";
+	public String currEditor = "";
 	
 	// For parsing tags correctly
 	private Stack<String> elementStack = new Stack<String>();
@@ -101,6 +103,15 @@ public class SaxPublicationsHandler extends DefaultHandler {
 				this.currPublication = new PublicationWWW();
 				break;
 				
+			// Non publication types
+			case "author":
+				this.currAuthor = "";
+				break;
+			
+			case "editor":
+				this.currEditor = "";
+				break;
+				
 			// unknown publication type
 			default:
 				break;
@@ -125,6 +136,27 @@ public class SaxPublicationsHandler extends DefaultHandler {
 			// Add  publication to appropriate list
 			ArrayList<Publication> listToAdd = this.publications.get(elementName);
 			listToAdd.add(this.currPublication);
+		}
+		
+		// Other tags that need to be processed
+		else {
+			switch(elementName) {
+			
+				// Add current author
+				case "author":
+					this.currPublication.authors.add(this.currAuthor);
+					this.currAuthor = "";
+					break;
+					
+				// Add current editor
+				case "editor":
+					this.currPublication.editors.add(this.currEditor);
+					this.currEditor = "";
+					break;
+					
+				default: 
+					break;
+			}
 		}
 		
 	}
@@ -167,11 +199,11 @@ public class SaxPublicationsHandler extends DefaultHandler {
 				break;
 				
 			case "author":
-				this.currPublication.authors.add(value);
+				this.currAuthor += value;
 				break;
 				
 			case "editor":
-				this.currPublication.editors.add(value);
+				this.currEditor += value;
 				break;
 				
 			case "year":

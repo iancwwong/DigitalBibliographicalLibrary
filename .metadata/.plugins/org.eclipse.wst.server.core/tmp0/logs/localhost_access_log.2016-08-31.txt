@@ -1,0 +1,16 @@
+127.0.0.1 - - [31/Aug/2016:19:22:52 +1000] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [31/Aug/2016:19:22:55 +1000] "GET /DigitalBibliographicLibrary/ HTTP/1.1" 200 18042
+0:0:0:0:0:0:0:1 - - [31/Aug/2016:19:22:56 +1000] "GET /DigitalBibliographicLibrary/css/general.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [31/Aug/2016:19:22:56 +1000] "GET /DigitalBibliographicLibrary/js/search.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [31/Aug/2016:19:22:56 +1000] "GET /DigitalBibliographicLibrary/css/navbar.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [31/Aug/2016:19:22:56 +1000] "GET /DigitalBibliographicLibrary/css/searchbar.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [31/Aug/2016:19:22:56 +1000] "GET /DigitalBibliographicLibrary/css/search.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [31/Aug/2016:19:24:15 +1000] "POST /DigitalBibliographicLibrary/control HTTP/1.1" 200 12858
+0:0:0:0:0:0:0:1 - - [31/Aug/2016:19:24:28 +1000] "POST /DigitalBibliographicLibrary/control HTTP/1.1" 200 18631
+0:0:0:0:0:0:0:1 - - [31/Aug/2016:19:24:38 +1000] "GET /DigitalBibliographicLibrary/control?searchTitle=&searchType=&searchAuthors=&searchEditors=&searchYear=&searchVenue=&searchVolume=&searchNumber=&searchPages=&searchPublisher=Springer&searchISBN=&searchSeries=&action=searchAdvancedFields HTTP/1.1" 200 14307
+0:0:0:0:0:0:0:1 - - [31/Aug/2016:19:25:50 +1000] "POST /DigitalBibliographicLibrary/control HTTP/1.1" 200 5549
+0:0:0:0:0:0:0:1 - - [31/Aug/2016:19:25:51 +1000] "GET /DigitalBibliographicLibrary/css/publicationpage.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [31/Aug/2016:19:25:51 +1000] "GET /DigitalBibliographicLibrary/img/icon_book.png HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [31/Aug/2016:19:26:22 +1000] "POST /DigitalBibliographicLibrary/control HTTP/1.1" 200 5549
+0:0:0:0:0:0:0:1 - - [31/Aug/2016:19:26:23 +1000] "POST /DigitalBibliographicLibrary/control HTTP/1.1" 200 4012
+0:0:0:0:0:0:0:1 - - [31/Aug/2016:19:26:27 +1000] "POST /DigitalBibliographicLibrary/control HTTP/1.1" 200 3073
